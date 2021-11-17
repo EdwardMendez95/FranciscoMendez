@@ -1,0 +1,1988 @@
+***********************************************
+The rDock program is licensed under GNU-LGPLv3.0. http://rdock.sourceforge.net/
+Executable:	rbdock ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbdock.cxx#4 $)
+Library:	libRbt.so/2013.1/901 2013/11/27
+RBT_ROOT:	/home/edward/anaconda3/envs/MD/share/rdock-2013.1-1
+RBT_HOME:	/home/edward
+Current dir:	/home/edward/Documentos/Virtual_Screening/rDock/2
+Date:		Wed Mar  3 16:56:46 2021
+***********************************************
+
+
+Command line args:
+ -i 2-var.sd
+ -r parameters.prm
+ -p dock.prm
+ -o 5hex_docking_out
+ -n 50
+Reading polar hydrogens only from ligand SD file
+
+DOCKING PROTOCOL:
+/home/edward/anaconda3/envs/MD/share/rdock-2013.1-1/data/scripts/dock.prm
+Free docking (indexed VDW)
+
+RECEPTOR:
+parameters.prm
+parameters
+
+DOCKING SITE
+Total volume 2288.25 A^3
+Cavity #1	Size=18306 points; Vol=2288.25 A^3; Min=(76.5,2,-110); Max=(93.5,31,-92); Center=(86.7928,16.7349,-101.092); Extent=(17,29,18)
+
+RbtMOL2FileSource: INFO Attempting to identify element by 1st 2 chars of FFType string: O
+RbtMOL2FileSource: INFO Atomic number = 8
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_21:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_49:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:SER_285:CA
+RbtMOL2FileSource: INFO Too many bonds detected to A:SER_285:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:ASN_287:CA
+RbtMOL2FileSource: INFO Too many bonds detected to A:ASN_287:CG
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_401:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_418:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_525:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:ASN_547:CG
+RbtMOL2FileSource: INFO Too many bonds detected to A:GLU_587:CA
+RbtMOL2FileSource: INFO Too many bonds detected to A:GLU_587:CB
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_592:CD
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_592:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:ARG_691:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:GLU_694:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_763:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:MET_875:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_885:CE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_17:HN1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_18:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_18:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_24:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_24:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_29:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_30:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_30:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_30:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_35:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_38:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_41:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_41:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_42:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_42:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_44:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_44:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_44:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_45:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_46:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_54:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_55:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_56:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_58:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_62:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_66:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_67:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_69:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_75:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_77:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_80:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_91:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_91:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_94:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_96:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_96:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_100:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_100:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_104:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_104:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_106:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_108:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_109:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_110:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_110:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_112:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_124:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_124:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_125:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_127:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_129:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_129:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_140:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_140:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_142:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_146:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_147:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_147:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_148:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_154:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:SER_155:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_156:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_160:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_160:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_161:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_162:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_162:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_162:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_165:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_167:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_183:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_183:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_183:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_190:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_190:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_190:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_196:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_196:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_199:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_202:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ILE_203:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_208:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_208:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_208:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_210:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_213:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_215:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_216:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_216:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_220:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_232:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_240:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_242:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_244:HD1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_247:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_249:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_254:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_254:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_258:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_261:HE1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_264:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_271:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_274:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_274:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_274:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_283:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_291:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_295:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_301:HH
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_312:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_315:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_330:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_331:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_333:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_333:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_333:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_336:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_336:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_337:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_350:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_350:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_350:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_362:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_371:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_371:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_372:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_373:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_373:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_373:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_376:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_380:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_380:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_381:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_381:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_381:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_389:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_395:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_395:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_398:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_398:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_407:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_407:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_409:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_419:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_425:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_425:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_429:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_430:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_430:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_432:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_432:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_433:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_433:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_433:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_441:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_441:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_441:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_442:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_444:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_444:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_451:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_455:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_457:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_461:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_461:HH
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_462:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_462:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_466:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_468:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_468:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_470:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_471:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_473:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_473:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_483:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_483:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_488:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_488:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_489:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_489:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_489:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_490:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_491:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_492:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_494:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_497:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_497:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_497:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_504:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_514:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_515:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_523:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_523:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_528:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_531:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_533:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_536:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_537:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_537:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_537:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_542:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_544:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_544:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_547:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_547:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_549:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_550:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_554:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_555:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_557:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_560:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_564:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_577:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_589:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_598:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_600:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_604:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_607:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_608:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_613:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_616:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_618:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_621:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_621:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_623:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_635:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_638:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_638:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_656:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_658:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_661:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_663:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_664:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_664:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_683:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_689:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_690:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_691:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_691:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_700:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_706:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_708:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_709:HE1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_715:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_721:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_722:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_735:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_735:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_739:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_743:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ILE_745:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_749:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_749:HH
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_755:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_755:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_756:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_756:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_756:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_762:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_768:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_777:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_777:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_778:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_779:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_779:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_779:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ILE_781:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_782:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_784:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_784:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_785:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_785:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_785:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_786:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_789:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_789:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_799:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_801:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_801:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_801:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_805:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_806:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_810:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:SER_811:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_820:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_824:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_828:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_828:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_828:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_829:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_829:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:CYS_834:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_838:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:VAL_842:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_846:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_846:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_849:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_849:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_863:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_866:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_870:HD1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_878:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_890:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_891:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_899:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_899:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_899:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_905:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:2HH2
+RbtMOL2FileSource: WARNING Undefined Tripos type for A:GLU_774:OE2
+
+No solvent
+
+------------- Terminate filter 0------------
+
+if (SCORE.NRUNS - 49 ) > 0 then
+	0.0 
+else
+	-1.0 
+end
+
+
+**************************************************
+RECORD #1
+NAME:   134695375
+RANDOM_NUMBER_SEED:           1614808606
+
+**************************************************
+RECORD #2
+NAME:   134695375
+RANDOM_NUMBER_SEED:           -550780981
+
+**************************************************
+RECORD #3
+NAME:   129878031
+RANDOM_NUMBER_SEED:           1907424804
+
+**************************************************
+RECORD #4
+NAME:   129878031
+RANDOM_NUMBER_SEED:           -607182234
+
+**************************************************
+RECORD #5
+NAME:   118707521
+RANDOM_NUMBER_SEED:           -922087114
+
+**************************************************
+RECORD #6
+NAME:   118707521
+RANDOM_NUMBER_SEED:           123181631
+
+**************************************************
+RECORD #7
+NAME:   91820057
+RANDOM_NUMBER_SEED:           -725405886
+
+**************************************************
+RECORD #8
+NAME:   91820057
+RANDOM_NUMBER_SEED:           -663444114
+
+**************************************************
+RECORD #9
+NAME:   90659182
+RANDOM_NUMBER_SEED:           -1560225143
+
+**************************************************
+RECORD #10
+NAME:   90659182
+RANDOM_NUMBER_SEED:           -1445352781
+
+**************************************************
+RECORD #11
+NAME:   76325328
+RANDOM_NUMBER_SEED:           -813977146
+
+**************************************************
+RECORD #12
+NAME:   76325328
+RANDOM_NUMBER_SEED:           -2124794658
+
+**************************************************
+RECORD #13
+NAME:   57376616
+RANDOM_NUMBER_SEED:           1649892194
+
+**************************************************
+RECORD #14
+NAME:   57376616
+RANDOM_NUMBER_SEED:           410926867
+
+**************************************************
+RECORD #15
+NAME:   57339292
+RANDOM_NUMBER_SEED:           1180835724
+
+**************************************************
+RECORD #16
+NAME:   57339292
+RANDOM_NUMBER_SEED:           400391080
+
+**************************************************
+RECORD #17
+NAME:   57339290
+RANDOM_NUMBER_SEED:           1331833710
+
+**************************************************
+RECORD #18
+NAME:   57339290
+RANDOM_NUMBER_SEED:           -1514481112
+
+**************************************************
+RECORD #19
+NAME:   54758653
+RANDOM_NUMBER_SEED:           -968263906
+
+**************************************************
+RECORD #20
+NAME:   54758653
+RANDOM_NUMBER_SEED:           -1871274719
+
+**************************************************
+RECORD #21
+NAME:   54758613
+RANDOM_NUMBER_SEED:           1718969538
+
+**************************************************
+RECORD #22
+NAME:   54758613
+RANDOM_NUMBER_SEED:           -1733937569
+
+**************************************************
+RECORD #23
+NAME:   52948856
+RANDOM_NUMBER_SEED:           -2049181638
+
+**************************************************
+RECORD #24
+NAME:   52948856
+RANDOM_NUMBER_SEED:           1720657735
+
+**************************************************
+RECORD #25
+NAME:   52944904
+RANDOM_NUMBER_SEED:           1228572783
+
+**************************************************
+RECORD #26
+NAME:   52944904
+RANDOM_NUMBER_SEED:           -1146209803
+
+**************************************************
+RECORD #27
+NAME:   52944903
+RANDOM_NUMBER_SEED:           793779225
+
+**************************************************
+RECORD #28
+NAME:   52944903
+RANDOM_NUMBER_SEED:           -1983729006
+
+**************************************************
+RECORD #29
+NAME:   51351654
+RANDOM_NUMBER_SEED:           677038942
+
+**************************************************
+RECORD #30
+NAME:   51351654
+RANDOM_NUMBER_SEED:           -160961597
+
+**************************************************
+RECORD #31
+NAME:   49859685
+RANDOM_NUMBER_SEED:           749952579
+
+**************************************************
+RECORD #32
+NAME:   49859685
+RANDOM_NUMBER_SEED:           587824649
+
+**************************************************
+RECORD #33
+NAME:   49802606
+RANDOM_NUMBER_SEED:           -725894544
+
+**************************************************
+RECORD #34
+NAME:   49802606
+RANDOM_NUMBER_SEED:           65893989
+
+**************************************************
+RECORD #35
+NAME:   46174147
+RANDOM_NUMBER_SEED:           946304191
+
+**************************************************
+RECORD #36
+NAME:   46174147
+RANDOM_NUMBER_SEED:           690960762
+
+**************************************************
+RECORD #37
+NAME:   45934204
+RANDOM_NUMBER_SEED:           -870086903
+
+**************************************************
+RECORD #38
+NAME:   45934204
+RANDOM_NUMBER_SEED:           -2100478752
+
+**************************************************
+RECORD #39
+NAME:   45933887
+RANDOM_NUMBER_SEED:           -1663350893
+
+**************************************************
+RECORD #40
+NAME:   45933887
+RANDOM_NUMBER_SEED:           900034583
+
+**************************************************
+RECORD #41
+NAME:   45357367
+RANDOM_NUMBER_SEED:           1481378351
+
+**************************************************
+RECORD #42
+NAME:   45357367
+RANDOM_NUMBER_SEED:           -1264862692
+
+**************************************************
+RECORD #43
+NAME:   45266822
+RANDOM_NUMBER_SEED:           -806921466
+
+**************************************************
+RECORD #44
+NAME:   45266822
+RANDOM_NUMBER_SEED:           988887893
+
+**************************************************
+RECORD #45
+NAME:   45266741
+RANDOM_NUMBER_SEED:           578435517
+
+**************************************************
+RECORD #46
+NAME:   45266741
+RANDOM_NUMBER_SEED:           1072915331
+
+**************************************************
+RECORD #47
+NAME:   44630437
+RANDOM_NUMBER_SEED:           -1364279715
+
+**************************************************
+RECORD #48
+NAME:   44630437
+RANDOM_NUMBER_SEED:           -1559123770
+
+**************************************************
+RECORD #49
+NAME:   44341508
+RANDOM_NUMBER_SEED:           1486111905
+
+**************************************************
+RECORD #50
+NAME:   44341508
+RANDOM_NUMBER_SEED:           1842003870
+
+**************************************************
+RECORD #51
+NAME:   44229083
+RANDOM_NUMBER_SEED:           -1079606569
+
+**************************************************
+RECORD #52
+NAME:   44229083
+RANDOM_NUMBER_SEED:           249641393
+
+**************************************************
+RECORD #53
+NAME:   44119773
+RANDOM_NUMBER_SEED:           -1324356888
+
+**************************************************
+RECORD #54
+NAME:   44119773
+RANDOM_NUMBER_SEED:           -2083966578
+
+**************************************************
+RECORD #55
+NAME:   42612215
+RANDOM_NUMBER_SEED:           -960051819
+
+**************************************************
+RECORD #56
+NAME:   42612215
+RANDOM_NUMBER_SEED:           1131410280
+
+**************************************************
+RECORD #57
+NAME:   25243963
+RANDOM_NUMBER_SEED:           -533413113
+
+**************************************************
+RECORD #58
+NAME:   25243963
+RANDOM_NUMBER_SEED:           1030508209
+
+**************************************************
+RECORD #59
+NAME:   25243937
+RANDOM_NUMBER_SEED:           220010021
+
+**************************************************
+RECORD #60
+NAME:   25243937
+RANDOM_NUMBER_SEED:           1378664361
+
+**************************************************
+RECORD #61
+NAME:   24847493
+RANDOM_NUMBER_SEED:           1547546599
+
+**************************************************
+RECORD #62
+NAME:   24847493
+RANDOM_NUMBER_SEED:           -177173899
+
+**************************************************
+RECORD #63
+NAME:   24779679
+RANDOM_NUMBER_SEED:           1660989281
+
+**************************************************
+RECORD #64
+NAME:   24779679
+RANDOM_NUMBER_SEED:           -197976339
+
+**************************************************
+RECORD #65
+NAME:   22833605
+RANDOM_NUMBER_SEED:           552090063
+
+**************************************************
+RECORD #66
+NAME:   22833605
+RANDOM_NUMBER_SEED:           -32357703
+
+**************************************************
+RECORD #67
+NAME:   16738680
+RANDOM_NUMBER_SEED:           1647589236
+
+**************************************************
+RECORD #68
+NAME:   16738680
+RANDOM_NUMBER_SEED:           -888423393
+
+**************************************************
+RECORD #69
+NAME:   12917651
+RANDOM_NUMBER_SEED:           945139919
+
+**************************************************
+RECORD #70
+NAME:   12917651
+RANDOM_NUMBER_SEED:           325138706
+
+**************************************************
+RECORD #71
+NAME:   12600646
+RANDOM_NUMBER_SEED:           -641853639
+
+**************************************************
+RECORD #72
+NAME:   12600646
+RANDOM_NUMBER_SEED:           255834383
+
+**************************************************
+RECORD #73
+NAME:   12302999
+RANDOM_NUMBER_SEED:           -1336205119
+
+**************************************************
+RECORD #74
+NAME:   12302999
+RANDOM_NUMBER_SEED:           209941413
+
+**************************************************
+RECORD #75
+NAME:   11908605
+RANDOM_NUMBER_SEED:           -929685229
+
+**************************************************
+RECORD #76
+NAME:   11908605
+RANDOM_NUMBER_SEED:           -1996770313
+
+**************************************************
+RECORD #77
+NAME:   11096158
+RANDOM_NUMBER_SEED:           400391479
+
+**************************************************
+RECORD #78
+NAME:   11096158
+RANDOM_NUMBER_SEED:           -1667824053
+
+**************************************************
+RECORD #79
+NAME:   9816401
+RANDOM_NUMBER_SEED:           -1290751074
+
+**************************************************
+RECORD #80
+NAME:   9816401
+RANDOM_NUMBER_SEED:           -1587892635
+
+**************************************************
+RECORD #81
+NAME:   7067772
+RANDOM_NUMBER_SEED:           -32519871
+
+**************************************************
+RECORD #82
+NAME:   7067772
+RANDOM_NUMBER_SEED:           -1831687255
+
+**************************************************
+RECORD #83
+NAME:   6971258
+RANDOM_NUMBER_SEED:           -309709000
+
+**************************************************
+RECORD #84
+NAME:   6971258
+RANDOM_NUMBER_SEED:           846786984
+
+**************************************************
+RECORD #85
+NAME:   6713972
+RANDOM_NUMBER_SEED:           16321621
+
+**************************************************
+RECORD #86
+NAME:   6713972
+RANDOM_NUMBER_SEED:           1890431373
+
+**************************************************
+RECORD #87
+NAME:   6420074
+RANDOM_NUMBER_SEED:           65458149
+
+**************************************************
+RECORD #88
+NAME:   6420074
+RANDOM_NUMBER_SEED:           490255722
+
+**************************************************
+RECORD #89
+NAME:   6323218
+RANDOM_NUMBER_SEED:           734572782
+
+**************************************************
+RECORD #90
+NAME:   6323218
+RANDOM_NUMBER_SEED:           1409596039
+
+**************************************************
+RECORD #91
+NAME:   5462244
+RANDOM_NUMBER_SEED:           -1091215246
+
+**************************************************
+RECORD #92
+NAME:   5462244
+RANDOM_NUMBER_SEED:           -239600469
+
+**************************************************
+RECORD #93
+NAME:   5317448
+RANDOM_NUMBER_SEED:           250310851
+
+**************************************************
+RECORD #94
+NAME:   5317448
+RANDOM_NUMBER_SEED:           -1472980431
+
+**************************************************
+RECORD #95
+NAME:   5284365
+RANDOM_NUMBER_SEED:           -21538707
+
+**************************************************
+RECORD #96
+NAME:   5284365
+RANDOM_NUMBER_SEED:           1913885732
+
+**************************************************
+RECORD #97
+NAME:   4282259
+RANDOM_NUMBER_SEED:           -863052137
+
+**************************************************
+RECORD #98
+NAME:   4282259
+RANDOM_NUMBER_SEED:           802344147
+
+**************************************************
+RECORD #99
+NAME:   3052142
+RANDOM_NUMBER_SEED:           -883106872
+
+**************************************************
+RECORD #100
+NAME:   3052142
+RANDOM_NUMBER_SEED:           -1662022806
+
+**************************************************
+RECORD #101
+NAME:   2801971
+RANDOM_NUMBER_SEED:           -1565492089
+
+**************************************************
+RECORD #102
+NAME:   2801971
+RANDOM_NUMBER_SEED:           -189527687
+
+**************************************************
+RECORD #103
+NAME:   2733787
+RANDOM_NUMBER_SEED:           -183040394
+
+**************************************************
+RECORD #104
+NAME:   2733787
+RANDOM_NUMBER_SEED:           27267087
+
+**************************************************
+RECORD #105
+NAME:   2733335
+RANDOM_NUMBER_SEED:           -1675573557
+
+**************************************************
+RECORD #106
+NAME:   2733335
+RANDOM_NUMBER_SEED:           78721211
+
+**************************************************
+RECORD #107
+NAME:   644170
+RANDOM_NUMBER_SEED:           -962922490
+
+**************************************************
+RECORD #108
+NAME:   644170
+RANDOM_NUMBER_SEED:           1187185922
+
+**************************************************
+RECORD #109
+NAME:   449462
+RANDOM_NUMBER_SEED:           842022963
+
+**************************************************
+RECORD #110
+NAME:   449462
+RANDOM_NUMBER_SEED:           1234393402
+
+**************************************************
+RECORD #111
+NAME:   448882
+RANDOM_NUMBER_SEED:           1215689342
+
+**************************************************
+RECORD #112
+NAME:   448882
+RANDOM_NUMBER_SEED:           1466935299
+
+**************************************************
+RECORD #113
+NAME:   447448
+RANDOM_NUMBER_SEED:           -192941843
+
+**************************************************
+RECORD #114
+NAME:   447448
+RANDOM_NUMBER_SEED:           -1821655382
+
+**************************************************
+RECORD #115
+NAME:   446101
+RANDOM_NUMBER_SEED:           -1427349492
+
+**************************************************
+RECORD #116
+NAME:   446101
+RANDOM_NUMBER_SEED:           -427987267
+
+**************************************************
+RECORD #117
+NAME:   445621
+RANDOM_NUMBER_SEED:           216612475
+
+**************************************************
+RECORD #118
+NAME:   445621
+RANDOM_NUMBER_SEED:           1513424532
+
+**************************************************
+RECORD #119
+NAME:   441477
+RANDOM_NUMBER_SEED:           -2114801580
+
+**************************************************
+RECORD #120
+NAME:   441477
+RANDOM_NUMBER_SEED:           1229962983
+
+**************************************************
+RECORD #121
+NAME:   441038
+RANDOM_NUMBER_SEED:           -271937449
+
+**************************************************
+RECORD #122
+NAME:   441038
+RANDOM_NUMBER_SEED:           -317382823
+
+**************************************************
+RECORD #123
+NAME:   440552
+RANDOM_NUMBER_SEED:           2077917680
+
+**************************************************
+RECORD #124
+NAME:   440552
+RANDOM_NUMBER_SEED:           564870609
+
+**************************************************
+RECORD #125
+NAME:   440271
+RANDOM_NUMBER_SEED:           1908622389
+
+**************************************************
+RECORD #126
+NAME:   440271
+RANDOM_NUMBER_SEED:           -703481407
+
+**************************************************
+RECORD #127
+NAME:   440235
+RANDOM_NUMBER_SEED:           873273309
+
+**************************************************
+RECORD #128
+NAME:   440235
+RANDOM_NUMBER_SEED:           899814077
+
+**************************************************
+RECORD #129
+NAME:   440049
+RANDOM_NUMBER_SEED:           1204701045
+
+**************************************************
+RECORD #130
+NAME:   440049
+RANDOM_NUMBER_SEED:           1109221370
+
+**************************************************
+RECORD #131
+NAME:   439281
+RANDOM_NUMBER_SEED:           514468015
+
+**************************************************
+RECORD #132
+NAME:   439281
+RANDOM_NUMBER_SEED:           -1947335115
+
+**************************************************
+RECORD #133
+NAME:   439213
+RANDOM_NUMBER_SEED:           -1137269869
+
+**************************************************
+RECORD #134
+NAME:   439213
+RANDOM_NUMBER_SEED:           778368330
+
+**************************************************
+RECORD #135
+NAME:   439174
+RANDOM_NUMBER_SEED:           -1858076676
+
+**************************************************
+RECORD #136
+NAME:   439174
+RANDOM_NUMBER_SEED:           -1650894593
+
+**************************************************
+RECORD #137
+NAME:   433580
+RANDOM_NUMBER_SEED:           1573864479
+
+**************************************************
+RECORD #138
+NAME:   433580
+RANDOM_NUMBER_SEED:           -1984600397
+
+**************************************************
+RECORD #139
+NAME:   408523
+RANDOM_NUMBER_SEED:           -1101825223
+
+**************************************************
+RECORD #140
+NAME:   408523
+RANDOM_NUMBER_SEED:           1976046973
+
+**************************************************
+RECORD #141
+NAME:   312829
+RANDOM_NUMBER_SEED:           1001513939
+
+**************************************************
+RECORD #142
+NAME:   312829
+RANDOM_NUMBER_SEED:           -2113305322
+
+**************************************************
+RECORD #143
+NAME:   254124
+RANDOM_NUMBER_SEED:           1349808176
+
+**************************************************
+RECORD #144
+NAME:   254124
+RANDOM_NUMBER_SEED:           1195256220
+
+**************************************************
+RECORD #145
+NAME:   202260
+RANDOM_NUMBER_SEED:           828704630
+
+**************************************************
+RECORD #146
+NAME:   202260
+RANDOM_NUMBER_SEED:           276783363
+
+**************************************************
+RECORD #147
+NAME:   198515
+RANDOM_NUMBER_SEED:           -1311413866
+
+**************************************************
+RECORD #148
+NAME:   198515
+RANDOM_NUMBER_SEED:           -720031289
+
+**************************************************
+RECORD #149
+NAME:   198514
+RANDOM_NUMBER_SEED:           -44489419
+
+**************************************************
+RECORD #150
+NAME:   198514
+RANDOM_NUMBER_SEED:           -1862428442
+
+**************************************************
+RECORD #151
+NAME:   193108
+RANDOM_NUMBER_SEED:           1222547284
+
+**************************************************
+RECORD #152
+NAME:   193108
+RANDOM_NUMBER_SEED:           1970971207
+
+**************************************************
+RECORD #153
+NAME:   129618
+RANDOM_NUMBER_SEED:           1785594304
+
+**************************************************
+RECORD #154
+NAME:   129618
+RANDOM_NUMBER_SEED:           1358638275
+
+**************************************************
+RECORD #155
+NAME:   127132
+RANDOM_NUMBER_SEED:           868921746
+
+**************************************************
+RECORD #156
+NAME:   127132
+RANDOM_NUMBER_SEED:           -672600509
+
+**************************************************
+RECORD #157
+NAME:   122253
+RANDOM_NUMBER_SEED:           -171816890
+
+**************************************************
+RECORD #158
+NAME:   122253
+RANDOM_NUMBER_SEED:           -1124147985
+
+**************************************************
+RECORD #159
+NAME:   118328
+RANDOM_NUMBER_SEED:           1910035040
+
+**************************************************
+RECORD #160
+NAME:   118328
+RANDOM_NUMBER_SEED:           1768687340
+
+**************************************************
+RECORD #161
+NAME:   112106
+RANDOM_NUMBER_SEED:           1999957926
+
+**************************************************
+RECORD #162
+NAME:   112106
+RANDOM_NUMBER_SEED:           -1381191915
+
+**************************************************
+RECORD #163
+NAME:   102416
+RANDOM_NUMBER_SEED:           137611350
+
+**************************************************
+RECORD #164
+NAME:   102416
+RANDOM_NUMBER_SEED:           320028786
+
+**************************************************
+RECORD #165
+NAME:   99461
+RANDOM_NUMBER_SEED:           -205793332
+
+**************************************************
+RECORD #166
+NAME:   99461
+RANDOM_NUMBER_SEED:           1923772017
+
+**************************************************
+RECORD #167
+NAME:   96523
+RANDOM_NUMBER_SEED:           -312655561
+
+**************************************************
+RECORD #168
+NAME:   96523
+RANDOM_NUMBER_SEED:           1684394511
+
+**************************************************
+RECORD #169
+NAME:   90220
+RANDOM_NUMBER_SEED:           -1765854149
+
+**************************************************
+RECORD #170
+NAME:   90220
+RANDOM_NUMBER_SEED:           -2106287757
+
+**************************************************
+RECORD #171
+NAME:   84265
+RANDOM_NUMBER_SEED:           738959751
+
+**************************************************
+RECORD #172
+NAME:   84265
+RANDOM_NUMBER_SEED:           -169634483
+
+**************************************************
+RECORD #173
+NAME:   82398
+RANDOM_NUMBER_SEED:           -1631965582
+
+**************************************************
+RECORD #174
+NAME:   82398
+RANDOM_NUMBER_SEED:           2115878112
+
+**************************************************
+RECORD #175
+NAME:   82313
+RANDOM_NUMBER_SEED:           -493125156
+
+**************************************************
+RECORD #176
+NAME:   82313
+RANDOM_NUMBER_SEED:           -1870764601
+
+**************************************************
+RECORD #177
+NAME:   35717
+RANDOM_NUMBER_SEED:           477064933
+
+**************************************************
+RECORD #178
+NAME:   35717
+RANDOM_NUMBER_SEED:           1884897366
+
+**************************************************
+RECORD #179
+NAME:   29327
+RANDOM_NUMBER_SEED:           812465884
+
+**************************************************
+RECORD #180
+NAME:   29327
+RANDOM_NUMBER_SEED:           298754834
+
+**************************************************
+RECORD #181
+NAME:   24154
+RANDOM_NUMBER_SEED:           -1249746388
+
+**************************************************
+RECORD #182
+NAME:   24154
+RANDOM_NUMBER_SEED:           76159862
+
+**************************************************
+RECORD #183
+NAME:   24139
+RANDOM_NUMBER_SEED:           1263306947
+
+**************************************************
+RECORD #184
+NAME:   24139
+RANDOM_NUMBER_SEED:           1010226459
+
+**************************************************
+RECORD #185
+NAME:   18897
+RANDOM_NUMBER_SEED:           2052594733
+
+**************************************************
+RECORD #186
+NAME:   18897
+RANDOM_NUMBER_SEED:           1460600234
+
+**************************************************
+RECORD #187
+NAME:   5300
+RANDOM_NUMBER_SEED:           1079786236
+
+**************************************************
+RECORD #188
+NAME:   5300
+RANDOM_NUMBER_SEED:           -1333366460
+
+**************************************************
+RECORD #189
+NAME:   899
+RANDOM_NUMBER_SEED:           1336376814
+
+**************************************************
+RECORD #190
+NAME:   899
+RANDOM_NUMBER_SEED:           -949234842
+
+**************************************************
+RECORD #191
+NAME:   739
+RANDOM_NUMBER_SEED:           652370258
+
+**************************************************
+RECORD #192
+NAME:   739
+RANDOM_NUMBER_SEED:           97378247
+
+**************************************************
+RECORD #193
+NAME:   ZINC000001471333
+RANDOM_NUMBER_SEED:           1726253759
+
+**************************************************
+RECORD #194
+NAME:   ZINC000001471333
+RANDOM_NUMBER_SEED:           -904512190
+
+**************************************************
+RECORD #195
+NAME:   ZINC000003956714
+RANDOM_NUMBER_SEED:           -1664080143
+
+**************************************************
+RECORD #196
+NAME:   ZINC000003956714
+RANDOM_NUMBER_SEED:           412780317
+
+**************************************************
+RECORD #197
+NAME:   ZINC000004027857
+RANDOM_NUMBER_SEED:           950434524
+
+**************************************************
+RECORD #198
+NAME:   ZINC000004027857
+RANDOM_NUMBER_SEED:           -38688056
+
+**************************************************
+RECORD #199
+NAME:   ZINC000004027859
+RANDOM_NUMBER_SEED:           68812217
+
+**************************************************
+RECORD #200
+NAME:   ZINC000004027859
+RANDOM_NUMBER_SEED:           52386831
+
+**************************************************
+RECORD #201
+NAME:   ZINC000012364260
+RANDOM_NUMBER_SEED:           1810638181
+
+**************************************************
+RECORD #202
+NAME:   ZINC000012364260
+RANDOM_NUMBER_SEED:           -837785725
+
+**************************************************
+RECORD #203
+NAME:   ZINC000013545464
+RANDOM_NUMBER_SEED:           1130468296
+
+**************************************************
+RECORD #204
+NAME:   ZINC000013545464
+RANDOM_NUMBER_SEED:           -1057172544
+
+**************************************************
+RECORD #205
+NAME:   ZINC000015205814
+RANDOM_NUMBER_SEED:           1239288654
+
+**************************************************
+RECORD #206
+NAME:   ZINC000015205814
+RANDOM_NUMBER_SEED:           -1640038035
+
+**************************************************
+RECORD #207
+NAME:   ZINC000015205840
+RANDOM_NUMBER_SEED:           895675646
+
+**************************************************
+RECORD #208
+NAME:   ZINC000015205840
+RANDOM_NUMBER_SEED:           -968325966
+
+**************************************************
+RECORD #209
+NAME:   ZINC000015205946
+RANDOM_NUMBER_SEED:           1619994079
+
+**************************************************
+RECORD #210
+NAME:   ZINC000015205946
+RANDOM_NUMBER_SEED:           1623763936
+
+**************************************************
+RECORD #211
+NAME:   ZINC000015205949
+RANDOM_NUMBER_SEED:           -1469455439
+
+**************************************************
+RECORD #212
+NAME:   ZINC000015205949
+RANDOM_NUMBER_SEED:           -1673775807
+
+**************************************************
+RECORD #213
+NAME:   ZINC000015205956
+RANDOM_NUMBER_SEED:           296625340
+
+**************************************************
+RECORD #214
+NAME:   ZINC000015205956
+RANDOM_NUMBER_SEED:           2112118387
+
+**************************************************
+RECORD #215
+NAME:   ZINC000019893747
+RANDOM_NUMBER_SEED:           334432259
+
+**************************************************
+RECORD #216
+NAME:   ZINC000019893747
+RANDOM_NUMBER_SEED:           1116068823
+
+**************************************************
+RECORD #217
+NAME:   ZINC000019898298
+RANDOM_NUMBER_SEED:           -745903596
+
+**************************************************
+RECORD #218
+NAME:   ZINC000019898298
+RANDOM_NUMBER_SEED:           -91383971
+
+**************************************************
+RECORD #219
+NAME:   ZINC000032106887
+RANDOM_NUMBER_SEED:           1764057356
+
+**************************************************
+RECORD #220
+NAME:   ZINC000032106887
+RANDOM_NUMBER_SEED:           -1179379249
+
+**************************************************
+RECORD #221
+NAME:   ZINC000032106889
+RANDOM_NUMBER_SEED:           37750213
+
+**************************************************
+RECORD #222
+NAME:   ZINC000032106889
+RANDOM_NUMBER_SEED:           858255256
+
+**************************************************
+RECORD #223
+NAME:   ZINC000044021353
+RANDOM_NUMBER_SEED:           1368320444
+
+**************************************************
+RECORD #224
+NAME:   ZINC000044021353
+RANDOM_NUMBER_SEED:           -2067580428
+
+**************************************************
+RECORD #225
+NAME:   ZINC000056871016
+RANDOM_NUMBER_SEED:           972503054
+
+**************************************************
+RECORD #226
+NAME:   ZINC000056871016
+RANDOM_NUMBER_SEED:           883570712
+
+**************************************************
+RECORD #227
+NAME:   ZINC000077269504
+RANDOM_NUMBER_SEED:           -1779803157
+
+**************************************************
+RECORD #228
+NAME:   ZINC000077269504
+RANDOM_NUMBER_SEED:           -1638424338
+
+**************************************************
+RECORD #229
+NAME:   ZINC000082114392
+RANDOM_NUMBER_SEED:           1830619545
+
+**************************************************
+RECORD #230
+NAME:   ZINC000082114392
+RANDOM_NUMBER_SEED:           1866282049
+
+**************************************************
+RECORD #231
+NAME:   ZINC000100342293
+RANDOM_NUMBER_SEED:           -867683049
+
+**************************************************
+RECORD #232
+NAME:   ZINC000100342293
+RANDOM_NUMBER_SEED:           476498168
+
+**************************************************
+RECORD #233
+NAME:   ZINC000100656214
+RANDOM_NUMBER_SEED:           363495473
+
+**************************************************
+RECORD #234
+NAME:   ZINC000100656214
+RANDOM_NUMBER_SEED:           -1121419208
+
+**************************************************
+RECORD #235
+NAME:   ZINC000100815672
+RANDOM_NUMBER_SEED:           312102131
+
+**************************************************
+RECORD #236
+NAME:   ZINC000100815672
+RANDOM_NUMBER_SEED:           934703526
+
+**************************************************
+RECORD #237
+NAME:   ZINC000101073479
+RANDOM_NUMBER_SEED:           218366095
+
+**************************************************
+RECORD #238
+NAME:   ZINC000101073479
+RANDOM_NUMBER_SEED:           1642482965
+
+**************************************************
+RECORD #239
+NAME:   ZINC000101135603
+RANDOM_NUMBER_SEED:           -1499860367
+
+**************************************************
+RECORD #240
+NAME:   ZINC000101135603
+RANDOM_NUMBER_SEED:           868934041
+
+**************************************************
+RECORD #241
+NAME:   ZINC000101136391
+RANDOM_NUMBER_SEED:           1434738880
+
+**************************************************
+RECORD #242
+NAME:   ZINC000101136391
+RANDOM_NUMBER_SEED:           -1032768385
+
+**************************************************
+RECORD #243
+NAME:   ZINC000101178654
+RANDOM_NUMBER_SEED:           1388012896
+
+**************************************************
+RECORD #244
+NAME:   ZINC000101178654
+RANDOM_NUMBER_SEED:           572046511
+
+**************************************************
+RECORD #245
+NAME:   ZINC000101361998
+RANDOM_NUMBER_SEED:           146597532
+
+**************************************************
+RECORD #246
+NAME:   ZINC000101361998
+RANDOM_NUMBER_SEED:           -560125993
+
+**************************************************
+RECORD #247
+NAME:   ZINC000102205030
+RANDOM_NUMBER_SEED:           1855819586
+
+**************************************************
+RECORD #248
+NAME:   ZINC000102205030
+RANDOM_NUMBER_SEED:           -86746243
+
+**************************************************
+RECORD #249
+NAME:   ZINC000102863660
+RANDOM_NUMBER_SEED:           764258950
+
+**************************************************
+RECORD #250
+NAME:   ZINC000102863660
+RANDOM_NUMBER_SEED:           1652932956
+
+**************************************************
+RECORD #251
+NAME:   ZINC000102974493
+RANDOM_NUMBER_SEED:           -1262141626
+
+**************************************************
+RECORD #252
+NAME:   ZINC000102974493
+RANDOM_NUMBER_SEED:           928390859
+
+**************************************************
+RECORD #253
+NAME:   ZINC000105341667
+RANDOM_NUMBER_SEED:           -1069506503
+
+**************************************************
+RECORD #254
+NAME:   ZINC000105341667
+RANDOM_NUMBER_SEED:           244818140
+
+**************************************************
+RECORD #255
+NAME:   ZINC000106381125
+RANDOM_NUMBER_SEED:           -106793799
+
+**************************************************
+RECORD #256
+NAME:   ZINC000106381125
+RANDOM_NUMBER_SEED:           1003777929
+
+**************************************************
+RECORD #257
+NAME:   ZINC000106382931
+RANDOM_NUMBER_SEED:           -673688876
+
+**************************************************
+RECORD #258
+NAME:   ZINC000106382931
+RANDOM_NUMBER_SEED:           -1237020573
+
+**************************************************
+RECORD #259
+NAME:   ZINC000106382957
+RANDOM_NUMBER_SEED:           82393650
+
+**************************************************
+RECORD #260
+NAME:   ZINC000106382957
+RANDOM_NUMBER_SEED:           1928587177
+
+**************************************************
+RECORD #261
+NAME:   ZINC000106382965
+RANDOM_NUMBER_SEED:           2012609327
+
+**************************************************
+RECORD #262
+NAME:   ZINC000106382965
+RANDOM_NUMBER_SEED:           -161921368
+
+**************************************************
+RECORD #263
+NAME:   ZINC000106384102
+RANDOM_NUMBER_SEED:           -56471144
+
+**************************************************
+RECORD #264
+NAME:   ZINC000106384102
+RANDOM_NUMBER_SEED:           -597577066
+
+**************************************************
+RECORD #265
+NAME:   ZINC000164373873
+RANDOM_NUMBER_SEED:           -2089018660
+
+**************************************************
+RECORD #266
+NAME:   ZINC000164373873
+RANDOM_NUMBER_SEED:           -463528271
+
+**************************************************
+RECORD #267
+NAME:   ZINC000196304985
+RANDOM_NUMBER_SEED:           1829165545
+
+**************************************************
+RECORD #268
+NAME:   ZINC000196304985
+RANDOM_NUMBER_SEED:           357303325
+
+**************************************************
+RECORD #269
+NAME:   ZINC000252694384
+RANDOM_NUMBER_SEED:           -1692566475
+
+**************************************************
+RECORD #270
+NAME:   ZINC000252694384
+RANDOM_NUMBER_SEED:           492406324
+
+**************************************************
+RECORD #271
+NAME:   ZINC000257346145
+RANDOM_NUMBER_SEED:           350150840
+
+**************************************************
+RECORD #272
+NAME:   ZINC000257346145
+RANDOM_NUMBER_SEED:           351180431
+
+**************************************************
+RECORD #273
+NAME:   ZINC000257346492
+RANDOM_NUMBER_SEED:           -1037772970
+
+**************************************************
+RECORD #274
+NAME:   ZINC000257346492
+RANDOM_NUMBER_SEED:           1201546074
+
+**************************************************
+RECORD #275
+NAME:   ZINC000257346903
+RANDOM_NUMBER_SEED:           -1591668505
+
+**************************************************
+RECORD #276
+NAME:   ZINC000257346903
+RANDOM_NUMBER_SEED:           1857461051
+
+**************************************************
+RECORD #277
+NAME:   ZINC000257347638
+RANDOM_NUMBER_SEED:           1189999376
+
+**************************************************
+RECORD #278
+NAME:   ZINC000257347638
+RANDOM_NUMBER_SEED:           -1288345064
+
+**************************************************
+RECORD #279
+NAME:   ZINC000257347639
+RANDOM_NUMBER_SEED:           -88851332
+
+**************************************************
+RECORD #280
+NAME:   ZINC000257347639
+RANDOM_NUMBER_SEED:           2137902195
+
+**************************************************
+RECORD #281
+NAME:   ZINC000307008534
+RANDOM_NUMBER_SEED:           -2004726850
+
+**************************************************
+RECORD #282
+NAME:   ZINC000307008534
+RANDOM_NUMBER_SEED:           1760772013
+
+**************************************************
+RECORD #283
+NAME:   ZINC000307565252
+RANDOM_NUMBER_SEED:           1060948755
+
+**************************************************
+RECORD #284
+NAME:   ZINC000307565252
+RANDOM_NUMBER_SEED:           -2065409920
+
+**************************************************
+RECORD #285
+NAME:   ZINC000383920275
+RANDOM_NUMBER_SEED:           -1155180394
+
+**************************************************
+RECORD #286
+NAME:   ZINC000383920275
+RANDOM_NUMBER_SEED:           1243953794
+
+**************************************************
+RECORD #287
+NAME:   ZINC000394934764
+RANDOM_NUMBER_SEED:           1127488693
+
+**************************************************
+RECORD #288
+NAME:   ZINC000394934764
+RANDOM_NUMBER_SEED:           -1459861539
+
+**************************************************
+RECORD #289
+NAME:   ZINC000396869768
+RANDOM_NUMBER_SEED:           -639157183
+
+**************************************************
+RECORD #290
+NAME:   ZINC000396869768
+RANDOM_NUMBER_SEED:           1731586569
+
+**************************************************
+RECORD #291
+NAME:   ZINC000575124622
+RANDOM_NUMBER_SEED:           -1025644255
+
+**************************************************
+RECORD #292
+NAME:   ZINC000575124622
+RANDOM_NUMBER_SEED:           1542350915
+
+**************************************************
+RECORD #293
+NAME:   ZINC000575124647
+RANDOM_NUMBER_SEED:           -650985015
+
+**************************************************
+RECORD #294
+NAME:   ZINC000575124647
+RANDOM_NUMBER_SEED:           376455940
+
+**************************************************
+RECORD #295
+NAME:   ZINC000616582453
+RANDOM_NUMBER_SEED:           -322986006
+
+**************************************************
+RECORD #296
+NAME:   ZINC000616582453
+RANDOM_NUMBER_SEED:           -1179831342
+
+**************************************************
+RECORD #297
+NAME:   ZINC000616582683
+RANDOM_NUMBER_SEED:           -83503322
+
+**************************************************
+RECORD #298
+NAME:   ZINC000616582683
+RANDOM_NUMBER_SEED:           638241279
+
+**************************************************
+RECORD #299
+NAME:   ZINC000616582813
+RANDOM_NUMBER_SEED:           -1705433696
+
+**************************************************
+RECORD #300
+NAME:   ZINC000616582813
+RANDOM_NUMBER_SEED:           -1252831229
+
+**************************************************
+RECORD #301
+NAME:   ZINC000616582904
+RANDOM_NUMBER_SEED:           600589745
+
+**************************************************
+RECORD #302
+NAME:   ZINC000616582904
+RANDOM_NUMBER_SEED:           -975193836
+
+**************************************************
+RECORD #303
+NAME:   ZINC000616583702
+RANDOM_NUMBER_SEED:           1462972526
+
+**************************************************
+RECORD #304
+NAME:   ZINC000616583702
+RANDOM_NUMBER_SEED:           -1762057298
+
+**************************************************
+RECORD #305
+NAME:   ZINC000616583781
+RANDOM_NUMBER_SEED:           -328524495
+
+**************************************************
+RECORD #306
+NAME:   ZINC000616583781
+RANDOM_NUMBER_SEED:           -2094240567
+
+**************************************************
+RECORD #307
+NAME:   ZINC000616589990
+RANDOM_NUMBER_SEED:           -1735243871
+
+**************************************************
+RECORD #308
+NAME:   ZINC000616589990
+RANDOM_NUMBER_SEED:           -309981348
+
+**************************************************
+RECORD #309
+NAME:   ZINC000616591357
+RANDOM_NUMBER_SEED:           157605965
+
+**************************************************
+RECORD #310
+NAME:   ZINC000616591357
+RANDOM_NUMBER_SEED:           -1777513015
+
+END OF RUN

@@ -1,0 +1,108 @@
+<html> 
+ <head> 
+ <title>Pharmacophore results</title> 
+ <style> 
+ body { 
+ background-repeat: no-repeat; 
+ margin: 30 0 0 30; 
+ font-size: 13px; 
+ font-family: verdana, sans; 
+ }  
+ a { 
+ color: #B00000; 
+ } 
+ td { 
+ font-family: verdana, sans; 
+ font-size: 13px; 
+ } 
+ hr { 
+ height: 1px; 
+ } 
+ .lineBorder { 
+ border-bottom: 1px solid #e1e1e1; 
+ } 
+ input { 
+ border: solid 1px; 
+ } 
+ input.butt { 
+ background: #FFF; 
+ color: #B00000; 
+ } 
+ </style> 
+ </head> 
+ <body> 
+ <table> 
+ <tbody> 
+ <tr> 
+ <td height="20"><img src="http://bioinfo3d.cs.tau.ac.il/pharma/logo_small.png" alt="logo"> 
+ </td> 
+ </tr> 
+ <tr> 
+ <td valign="top"> 
+ [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/about.html">About</a>] [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/index.html">WebServer</a>] [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/faq.html">FAQ</a>] [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/help.html">Help / Getting Started</a>] Contact: <a href="mailto:ppdock@tau.ac.il">ppdock@tau.ac.il</a> 
+ <br> 
+ </td> 
+ <td valign="top"><br> 
+ </td> 
+ </tr> 
+ <tr> 
+ <td colspan="2"> 
+ <hr style="width: 100%; height: 2px;"></td> 
+ </tr> 
+ <tr> 
+ </tr> </tbody> 
+ </table> 
+ <br>
+
+<script type="text/javascript" language="javascript" src="/home/edward/Documentos/Farmacoforo/N-terminal/PharmaGist_3/jmol-14.31.34//Jmol.js"></script>
+<script type="text/javascript" language="javascript"> jmolInitialize("/home/edward/Documentos/Farmacoforo/N-terminal/PharmaGist_3/jmol-14.31.34/"); </script> 
+Pharmacophore features: 
+<script type="text/javascript">
+jmolCheckbox("define spacefillSelection spacefillSelection, model =1;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define spacefillSelection spacefillSelection and not model =1;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","","isChecked")</script>
+<table cellspacing=5 cellpadding=0 width=90%>
+<tr bgcolor=99CCFF><td>Score</td>
+<td>Features</td>
+<td>Spatial Features</td>
+<td bgcolor=cyan>Aromatic</td>
+<td bgcolor=lightgrey>Hydrophobic</td>
+<td bgcolor=yellow>Donors</td>
+<td bgcolor=#77FF99>Acceptors</td>
+<td bgcolor=red>Negatives</td>
+<td bgcolor=#7799FF>Positives</td>
+</tr>
+<tr><td><center> 11.036</td><td><center> 2</td><td><center> 2</td><td><center> 1</td><td><center> 0</td><td><center> 0</td><td><center> 1</td><td><center> 0</td><td><center> 0</td></tr></table>
+<table cellspacing=5 cellpadding=0 width=95%>
+<tr bgcolor=white><td>
+<table cellspacing=5 cellpadding=0 width=65% align=center>
+<tr bgcolor=99CCFF><td>Molecule Name </td> <td> Show Molecule:</td><td>Show Features:</td>
+</tr><tr bgcolor=#cccccc><td> <font color=#0000FF>Ligandos_final*</font></td>
+<td>
+<script type="text/javascript">
+jmolCheckbox("define wireframeSelection wireframeSelection, model =2;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define wireframeSelection wireframeSelection and not model =2;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","","isChecked")</script>
+
+</td>
+<td>
+<script type="text/javascript">
+jmolCheckbox("define spacefillSelection spacefillSelection, model =3;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define spacefillSelection spacefillSelection and not model =3;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","")</script>
+ </td>
+</tr>
+<tr bgcolor=#cccccc><td> <font color=#BC00BC>3_var_406</font></td>
+<td>
+<script type="text/javascript">
+jmolCheckbox("define wireframeSelection wireframeSelection, model =4;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define wireframeSelection wireframeSelection and not model =4;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","","isChecked")</script>
+
+</td>
+<td>
+<script type="text/javascript">
+jmolCheckbox("define spacefillSelection spacefillSelection, model =5;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define spacefillSelection spacefillSelection and not model =5;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","")</script>
+ </td>
+</tr>
+</table>
+* pivot molecule
+<br><br> <a href=1.pha_db_3_var.mol2_J2_14.mol2>Download Pharmacophore and Alignment File</a>
+</script> </p> </td> 
+<td width="550" height="250"> <div align="center">
+<script type="text/javascript"> jmolApplet(350, "load 1.pha_db_3_var.mol2_J2_14.mol2; select all; spacefill off; restrict not all;define wireframeSelection  model = 2, model = 4 ; define spacefillSelection model =1; select model = 2; color [0 ,0 ,255];select model = 4; color [188 ,0 ,188];frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill; background white; hide hydrogens;select ACC;color green; select DON;color yellow; select CAT;color blue; select ANI;color red; select AR;color translucent cyan; select HYD;color lightgrey; select UDF;color magenta; ");
+</script> </div> </td> </tr> 
+ </table> 
+</body></html>

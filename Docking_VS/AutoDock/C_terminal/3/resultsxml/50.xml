@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<result>
+	<clustering_histogram>
+		<cluster cluster_rank="1" lowest_binding_energy="-8.45" run="3" mean_binding_energy="-7.80" num_in_clus="40" />
+		<cluster cluster_rank="2" lowest_binding_energy="-7.51" run="44" mean_binding_energy="-7.51" num_in_clus="1" />
+		<cluster cluster_rank="3" lowest_binding_energy="-7.38" run="8" mean_binding_energy="-7.01" num_in_clus="7" />
+		<cluster cluster_rank="4" lowest_binding_energy="-7.08" run="25" mean_binding_energy="-6.94" num_in_clus="2" />
+	</clustering_histogram>
+	<rmsd_table>
+		<run rank="1" sub_rank="1" run="3" binding_energy="-8.45" cluster_rmsd="0.00" reference_rmsd="141.04" />
+		<run rank="1" sub_rank="2" run="20" binding_energy="-8.45" cluster_rmsd="0.15" reference_rmsd="141.01" />
+		<run rank="1" sub_rank="3" run="26" binding_energy="-8.45" cluster_rmsd="0.12" reference_rmsd="141.06" />
+		<run rank="1" sub_rank="4" run="36" binding_energy="-8.43" cluster_rmsd="0.06" reference_rmsd="141.05" />
+		<run rank="1" sub_rank="5" run="48" binding_energy="-8.42" cluster_rmsd="0.28" reference_rmsd="141.03" />
+		<run rank="1" sub_rank="6" run="10" binding_energy="-8.41" cluster_rmsd="0.16" reference_rmsd="141.00" />
+		<run rank="1" sub_rank="7" run="12" binding_energy="-8.40" cluster_rmsd="0.15" reference_rmsd="141.03" />
+		<run rank="1" sub_rank="8" run="17" binding_energy="-8.39" cluster_rmsd="0.18" reference_rmsd="141.06" />
+		<run rank="1" sub_rank="9" run="22" binding_energy="-8.35" cluster_rmsd="0.35" reference_rmsd="141.02" />
+		<run rank="1" sub_rank="10" run="11" binding_energy="-8.35" cluster_rmsd="0.37" reference_rmsd="141.04" />
+		<run rank="1" sub_rank="11" run="29" binding_energy="-8.33" cluster_rmsd="0.17" reference_rmsd="140.95" />
+		<run rank="1" sub_rank="12" run="42" binding_energy="-8.29" cluster_rmsd="0.47" reference_rmsd="140.84" />
+		<run rank="1" sub_rank="13" run="50" binding_energy="-8.02" cluster_rmsd="0.89" reference_rmsd="140.54" />
+		<run rank="1" sub_rank="14" run="34" binding_energy="-8.00" cluster_rmsd="0.95" reference_rmsd="140.56" />
+		<run rank="1" sub_rank="15" run="21" binding_energy="-7.94" cluster_rmsd="0.74" reference_rmsd="141.12" />
+		<run rank="1" sub_rank="16" run="41" binding_energy="-7.89" cluster_rmsd="0.71" reference_rmsd="140.81" />
+		<run rank="1" sub_rank="17" run="27" binding_energy="-7.85" cluster_rmsd="0.92" reference_rmsd="140.89" />
+		<run rank="1" sub_rank="18" run="16" binding_energy="-7.83" cluster_rmsd="1.48" reference_rmsd="140.93" />
+		<run rank="1" sub_rank="19" run="18" binding_energy="-7.81" cluster_rmsd="1.51" reference_rmsd="140.91" />
+		<run rank="1" sub_rank="20" run="43" binding_energy="-7.77" cluster_rmsd="0.85" reference_rmsd="140.91" />
+		<run rank="1" sub_rank="21" run="6" binding_energy="-7.75" cluster_rmsd="0.74" reference_rmsd="140.61" />
+		<run rank="1" sub_rank="22" run="13" binding_energy="-7.69" cluster_rmsd="0.60" reference_rmsd="140.79" />
+		<run rank="1" sub_rank="23" run="23" binding_energy="-7.67" cluster_rmsd="0.73" reference_rmsd="140.63" />
+		<run rank="1" sub_rank="24" run="7" binding_energy="-7.66" cluster_rmsd="0.75" reference_rmsd="140.63" />
+		<run rank="1" sub_rank="25" run="14" binding_energy="-7.61" cluster_rmsd="1.17" reference_rmsd="141.32" />
+		<run rank="1" sub_rank="26" run="47" binding_energy="-7.60" cluster_rmsd="0.92" reference_rmsd="140.61" />
+		<run rank="1" sub_rank="27" run="5" binding_energy="-7.59" cluster_rmsd="1.41" reference_rmsd="141.02" />
+		<run rank="1" sub_rank="28" run="35" binding_energy="-7.57" cluster_rmsd="1.10" reference_rmsd="140.77" />
+		<run rank="1" sub_rank="29" run="45" binding_energy="-7.51" cluster_rmsd="0.86" reference_rmsd="140.78" />
+		<run rank="1" sub_rank="30" run="46" binding_energy="-7.49" cluster_rmsd="0.82" reference_rmsd="140.69" />
+		<run rank="1" sub_rank="31" run="15" binding_energy="-7.49" cluster_rmsd="0.83" reference_rmsd="140.70" />
+		<run rank="1" sub_rank="32" run="9" binding_energy="-7.41" cluster_rmsd="0.75" reference_rmsd="140.85" />
+		<run rank="1" sub_rank="33" run="37" binding_energy="-7.40" cluster_rmsd="1.56" reference_rmsd="140.15" />
+		<run rank="1" sub_rank="34" run="33" binding_energy="-7.28" cluster_rmsd="0.96" reference_rmsd="140.63" />
+		<run rank="1" sub_rank="35" run="24" binding_energy="-7.22" cluster_rmsd="1.01" reference_rmsd="140.89" />
+		<run rank="1" sub_rank="36" run="30" binding_energy="-7.15" cluster_rmsd="1.71" reference_rmsd="141.00" />
+		<run rank="1" sub_rank="37" run="31" binding_energy="-7.12" cluster_rmsd="1.74" reference_rmsd="141.04" />
+		<run rank="1" sub_rank="38" run="4" binding_energy="-7.09" cluster_rmsd="1.16" reference_rmsd="141.09" />
+		<run rank="1" sub_rank="39" run="49" binding_energy="-6.97" cluster_rmsd="1.45" reference_rmsd="140.56" />
+		<run rank="1" sub_rank="40" run="19" binding_energy="-6.85" cluster_rmsd="1.91" reference_rmsd="140.89" />
+		<run rank="2" sub_rank="1" run="44" binding_energy="-7.51" cluster_rmsd="0.00" reference_rmsd="138.73" />
+		<run rank="3" sub_rank="1" run="8" binding_energy="-7.38" cluster_rmsd="0.00" reference_rmsd="136.32" />
+		<run rank="3" sub_rank="2" run="32" binding_energy="-7.16" cluster_rmsd="0.61" reference_rmsd="136.49" />
+		<run rank="3" sub_rank="3" run="28" binding_energy="-6.97" cluster_rmsd="0.48" reference_rmsd="136.30" />
+		<run rank="3" sub_rank="4" run="38" binding_energy="-6.92" cluster_rmsd="0.46" reference_rmsd="136.32" />
+		<run rank="3" sub_rank="5" run="39" binding_energy="-6.92" cluster_rmsd="0.36" reference_rmsd="136.34" />
+		<run rank="3" sub_rank="6" run="2" binding_energy="-6.91" cluster_rmsd="0.38" reference_rmsd="136.35" />
+		<run rank="3" sub_rank="7" run="40" binding_energy="-6.80" cluster_rmsd="0.49" reference_rmsd="136.53" />
+		<run rank="4" sub_rank="1" run="25" binding_energy="-7.08" cluster_rmsd="0.00" reference_rmsd="140.10" />
+		<run rank="4" sub_rank="2" run="1" binding_energy="-6.80" cluster_rmsd="1.83" reference_rmsd="139.85" />
+	</rmsd_table>
+</result>

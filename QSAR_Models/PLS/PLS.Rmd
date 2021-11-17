@@ -1,0 +1,722 @@
+---
+title: "QSAR model by a PLS regression"
+author: "Edward Francisco Mendez-Otalvaro, Daniel Alberto Barragan, Isaias Lans-Vargas"
+date: "2021"
+output:
+html_document: default
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+library(formatR)
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=80),tidy=TRUE)
+```
+
+## Functions to calculate metrics of the model
+
+<p style='text-align: justify;'>The metrics that are going to be used are:
+
+* Root mean square error of training set (RMSEC)
+* Root mean square error of test set (RMSEP)
+* Square of the correlation coefficient of training set (R<sup>2</sup><sub>tr</sub>).
+* Square of the correlation coefficient of test set (Also called Q<sup>2</sup><sub>F2</sub> coefficient).
+* Q<sup>2</sup><sub>F3</sub> coefficient of Todeschini.
+* Spearman correlation coefficient of test set ($\sigma$).
+* Square of the Spearman correlation coefficient of test set ($\sigma$<sup>2</sup>).
+* Square of the correlation coefficient of cross validation leaving one outside (R<sup>2</sup><sub>LOO</sub>).
+* Root mean square error of cross validation leaving one outside (RMSE<sub>LOO</sub>).
+
+All the above metrics are rotinarious in QSAR modelling, in order to get some criteria about a good predictive or ranking model (our main objetive).
+</p>
+
+```{r}
+
+Metricas<-function(obs_tr,pred_tr,obs_out,pred_out){
+  
+  ssr_tr<-sum((obs_tr-pred_tr)^2)
+  sst_tr<-sum((obs_tr-mean(obs_tr))^2)
+  
+  ssr_out<-sum((obs_out-pred_out)^2)
+  sst_out<-sum((obs_out-mean(obs_out))^2)
+  
+  n_tr<-20
+  n_out<-7
+  
+  ##RMSEC
+  
+  RMSEC<-sqrt(ssr_tr/(n_tr))
+  
+  ##RMSEP
+  
+  RMSEP<-sqrt(ssr_out/(n_out))
+  
+  ##R2tr
+  
+  R2tr<-(1-(ssr_tr/sst_tr))
+  
+  ##R2out/Q2F2/R2Tropsha
+  
+  R2out<-(1-(ssr_out/sst_out))
+  
+  ##Q2F3
+  
+  Q2F3<-(1-((ssr_out/n_out)/(sst_tr/n_tr)))
+  
+  ##Sigma
+  
+  rho<-cor(obs_out, pred_out, method = c("spearman"))
+  
+  ##Sigma2
+  
+  rho2<-(rho)^2
+  
+  ##Salida
+  
+  output<-list(RMSEC=RMSEC,RMSEP=RMSEP,R2tr=R2tr,R2out=R2out,Q2F3=Q2F3,
+               rho=rho,rho2=rho2)
+  return(output)
+}
+
+##LOO Metrics 
+
+Metrica_LOO<- function (obs,pred){
+  
+  ssr_LOO<-sum((obs-pred)^2)
+  sst_LOO<-sum((obs-mean(obs))^2)
+  n_LOO<-20
+  
+  ##R2LOO
+  
+  R2LOO<-(1-(ssr_LOO/sst_LOO))
+  
+  ##RMSELOO
+  
+  RMSELOO<-sqrt(ssr_LOO/n_LOO)
+  
+    output<-list(R2LOO=R2LOO,RMSELOO=RMSELOO)
+  return(output)
+}
+
+```
+
+## Importing dataset
+
+<p style='text-align: justify;'>Now, the dataset previously prepared is upload (we concatenate the molecular descriptors with the biological activity):</p>
+
+```{r}
+Descriptores_I <-read.csv("Descriptores_Alvrunner.csv",
+                          stringsAsFactors=FALSE)
+
+Descriptores_II <- read.csv("Descriptores_MOPAC.csv", 
+                            stringsAsFactors=FALSE)
+
+Descriptores<-cbind(Descriptores_I,Descriptores_II)
+
+
+##Biological activity
+
+Actividad <- read.csv2("Actividad.csv", 
+                         stringsAsFactors=FALSE)
+
+##Joining molecular descriptors with activity
+
+Dataset<-cbind(Descriptores,Actividad)
+
+##Cleaning labels
+
+Dataset$ID<-NULL
+Dataset$IC50..uM.<-NULL
+
+##Renaming biological activity
+
+names(Dataset)[names(Dataset) == "IC50..M."] <- "pIC50"
+```
+<p style='text-align: justify;'>Converting biological activity (EC<sub>50</sub>) into logarithmic scale, and then, calculating dimension of the dataframe</p>
+
+```{r}
+Dataset[,2284] <- -log10(Dataset[,2284])
+
+dim(Dataset)
+```
+<p style='text-align: justify;'>So, there are 27 molecules with 2283 molecular descriptors and a biological activity response.</p>
+
+## Pretreatment of the dataset (cleaning)
+
+<p style='text-align: justify;'>Let's remove NA columns; columns with variance of zero (constant columns) and columns with more than half filled with zeros (Refer to the Manuscript to the criteria selected).</p>
+
+```{r}
+##Removing NA's
+Dataset <- Dataset[, !apply(Dataset, 2, function(x) any(is.na(x)) )]
+
+##Removing columns with variance equal to zero.
+Dataset <- Dataset[,apply(Dataset, 2, var, na.rm=TRUE) != 0]
+
+##Removing columns with constant values
+Dataset <- Dataset[, !apply(Dataset, 2, function(x) length(unique(x)) == 1 )]
+
+##Removing columns with more than half filled with zeros
+Dataset <- Dataset[, colSums(Dataset != 0) > nrow(Dataset)/2] 
+
+dim(Dataset)
+```
+<p style='text-align: justify;'>Since the dataset is very high dimensional ``27 X 365``. Let's calculate a correlation matrix for all the descriptors, and then, let's remove the high correlated molecular descriptors (R<sup>2</sup> of Pearson >0.99), with this, the multicolinearity between columns could be improved (a problem that could generate bias in our QSAR model)</p>
+
+```{r message=FALSE, warning=FALSE}
+##Removing high correlated descriptors
+library(caret)
+  
+##Correlation matrix calculation
+Dataset_Cor = cor(Dataset)
+
+## Removing high correlated descriptors with a R2>0.99
+
+hc = findCorrelation(Dataset_Cor, cutoff=0.99)
+hc = sort(hc)
+
+##Non correlated descriptor matrix
+
+Dataset_hc = Dataset[,-c(hc)]
+
+##Dimension of the dataset
+dim(Dataset_hc)
+```
+<p style='text-align: justify;'>So now, the dataset has a dimension of ``27 X 275``. The improvement of the descriptors is good, but the high dimensionality still appears (n<p, ie; more descriptors than observations)</p>
+
+## Splitting dataset into training a test set
+
+<p style='text-align: justify;'>Since the dataset is very asymmetrical, and there are few observations, let's try to split the dataset in order to get a good balance between both groups (avoiding artifacts by asymetrical splitting). The **caret** function from R allows to carry out this task. Also, the dataset will be scaled subtracting the mean and dividing by standard deviation of data. The ratio will be 70% training and 30% testing.</p>
+
+```{r}
+
+##Scaling 
+Mean <- apply(Dataset_hc, 2, mean)
+SD <- apply(Dataset_hc, 2, sd)
+
+Dataset_S<-as.matrix(scale(Dataset_hc,center = Mean, scale = SD))
+
+centrado<-t(attr(Dataset_S, 'scaled:center'))
+escalado<-t(attr(Dataset_S, 'scaled:scale'))
+
+
+##Splitting the data in training and test (70% training and 30% test)
+
+set.seed(101) 
+Muestra <- createDataPartition(Dataset_S[,275],times = 1,p=0.7,list=FALSE)
+
+Modelamiento<-as.matrix(Dataset_S[Muestra,])
+Prueba<-as.matrix(Dataset_S[-Muestra,])
+```
+
+<p style='text-align: justify;'>Let's apreciate the distribution of the data in the training and test set</p>
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+## Basic histogram
+
+ggplot(as.data.frame(Modelamiento), aes(x=pIC50)) + geom_histogram(color="darkblue", fill="lightblue")+
+ggtitle("pIC50 distribution Training set")
+
+ggplot(as.data.frame(Prueba), aes(x=pIC50)) + geom_histogram(color="darkblue", fill="lightblue")+
+ggtitle("pIC50 distribution Test set")
+
+```
+<p style='text-align: justify;'>A Student-t statistical test will be carried out to get insight about the differences between groups. The null hypothesis states that the data comes from the same statistical distribution. The alternative hypothesis states that the data does not come from the same statistical distribution. The test will be carried out with a significance level of 95% (p-value = 0.05)</p>
+
+```{r}
+t.test(Modelamiento[,275],Prueba[,275])
+```
+<p style='text-align: justify;'>Since ``p-value>0.05``, then the null hypothesis is accepted, so both data distributions come from the same statistical distribution with a statistical significance level of 95%.</p>
+
+## Fitting a partial least squares model (PLS):
+
+<p style='text-align: justify;'>Partial least squares is an algorithm very useful in cases when the matrix of predictors has more variables than observations (n<p) and also, when there is multicollinearity among regressors. The algorithm tries to find a linear regression model projection the predicted and observable variables to a new space determined by the principal components (PC) of the data, specifically the predictors and outcome are projected into the scores matrix of the PC. Since the dataset is projected in a new space (or axis of coordenates), there is not an explicit expression for the correlation (like in the OLS-MLR), because the linear fitting is carry out over the PC.</p>
+
+```{r warning=FALSE, message=FALSE}
+##Setting training and test sets
+
+Modelamiento_pls<-as.data.frame(Modelamiento)
+Prueba_pls<-as.data.frame(Prueba)
+
+##Fitting PLS regression model
+library(pls)
+
+set.seed(1)
+Modelo_PLS=plsr(pIC50~.,data=Modelamiento_pls,
+                scale=FALSE ,
+                validation ="LOO")
+summary(Modelo_PLS)
+```
+<p style='text-align: justify;'>So, apparently with 15 PC the model can explain almost 100% of the variance of the data. Let's plot all the PC respect to the error (RMSE) in order to get the true value of the optimal PC.</p>
+
+```{r message=FALSE, warning=FALSE}
+##Number of principal components (PC) that minimize the RMSE
+validationplot(Modelo_PLS,val.type="RMSEP")
+```
+<p style='text-align: justify;'>Since the optimal number of principal components that minimize the error are 15, let's refit the model with these parameters.</p>
+
+```{r}
+##Refitting the PLS model with 15 PC
+Modelo_PLS_Final=plsr(pIC50~.,data=Modelamiento_pls,scale=FALSE ,ncomp=15)
+summary(Modelo_PLS_Final)
+```
+
+### Scores and loadings predictors plot (requirement when a PLS model is fitted):
+
+```{r}
+library(ggplot2)
+scores_modelo <- Modelo_PLS_Final$scores
+loadings_modelo<-Modelo_PLS_Final$loadings
+
+sc1 <- scores_modelo[,1]
+sc2 <- scores_modelo[,2]
+scor_plot <- as.data.frame(cbind(sc1, sc2))
+rownames(scor_plot)<-Muestra
+
+ld1 <- loadings_modelo[,1]
+ld2 <- loadings_modelo[,2]
+loa_plot <- as.data.frame(cbind(ld1, ld2))
+desc_names<-colnames(Modelamiento_pls)
+rownames(loa_plot)<-desc_names[1:274]
+
+p<-ggplot(scor_plot,aes(x=sc1,y=sc2))+ geom_point()+geom_text(label=rownames(scores_modelo),check_overlap = TRUE,size=3,vjust=2)+geom_point(shape=".")+labs(title = "PLS Scores(Molecules)")+xlab("Principal component 1")+ylab("Principal component 2")
+p
+
+m<-ggplot(loa_plot,aes(x=ld1,y=ld2))+ geom_point()+geom_text(label=rownames(loa_plot),check_overlap = TRUE,size=3,vjust=2, colour="red")+geom_point(shape=".")+labs(title = "PLS Loadings(Descriptors)")+xlab("Principal component 1")+ylab("Principal component 2")
+m
+```
+### Predicting the training dataset with the model (Internal):
+
+```{r}
+Predicho_tr<-predict(Modelo_PLS_Final ,Modelamiento_pls,ncomp=15)
+Observado_tr<-Modelamiento_pls$pIC50
+```
+### Predicting the test dataset with the model (External):
+
+```{r}
+Predicho_out <- predict(Modelo_PLS_Final,Prueba_pls,ncomp=15)
+Observado_out<-Prueba_pls$pIC50
+```
+
+### Unscaling data
+
+```{r}
+##Function to unscaling
+
+Desescalar<- function (X){
+  X_desescalada <- (X * escalado[,275] + 
+    centrado[,275])
+ } 
+
+##Internal prediction
+
+Predicho_tr<-Desescalar(Predicho_tr)
+Observado_tr<-Desescalar(Observado_tr)
+
+Obs_df<-as.data.frame(cbind(Observado_tr,Predicho_tr))
+colnames(Obs_df)<-c("Observed","Predicted")
+rownames(Obs_df)<-Muestra[1:20]
+
+
+##External prediction
+
+Predicho_out <-Desescalar(Predicho_out)
+Observado_out<-Desescalar(Observado_out)
+
+Pred_df<-as.data.frame(cbind(Observado_out,Predicho_out))
+colnames(Pred_df)<-c("Observed","Predicted")
+rownames(Pred_df)<-c("4","5","10","15","16","19","26")
+
+```
+
+### Statistical metrics and plotting of the model
+
+```{r}
+Metricas_PLS<-Metricas(Observado_tr,Predicho_tr,Observado_out,Predicho_out)
+
+Metricas_PLS<-(do.call(rbind, Metricas_PLS))
+rownames(Metricas_PLS)<-c("RMSEC","RMSEP","R2tr",  "R2out", "Q2F3", "rho","rho2")
+Metricas_PLS<-round(Metricas_PLS,1)
+print(Metricas_PLS)
+```
+```{r}
+library(ggplot2)
+
+# Basic scatter plot Training
+ggplot(Obs_df, aes(x=Observed, y=Predicted)) + geom_point()+geom_smooth(method=lm)+ggtitle("Observed VS predicted (Internal prediction)")+  geom_text(size=5,aes(label=rownames(Obs_df)),hjust=0, vjust=0,check_overlap = TRUE)+coord_cartesian(xlim =c(4.5,8.5), ylim = c(4.5,8.5))
+ggsave("plsexternal.png")
+
+
+# Basic scatter plot Test
+ggplot(Pred_df, aes(x=Observed, y=Predicted)) + geom_point()+geom_smooth(method=lm)+ggtitle("Observed VS predicted (External prediction)")+  geom_text(aes(label=rownames(Pred_df)),check_overlap = TRUE,hjust=0, vjust=0)+coord_cartesian(xlim =c(4,8.5), ylim = c(4,8.5))
+ggsave("plsinternal.png")
+
+
+```
+
+### Leaving one out cross-validation (LOO-CV) of the data
+
+<p style='text-align: justify;'>A statistical metric that is common in QSAR modeling is the RMSE and R<sub>2</sub> of the LOO-CV. Let's estimate these parameters</p>
+
+```{r}
+
+##Storing matrix for the cycle
+    
+Pred_CV=matrix()
+Modelo_i=list()
+
+##Training set
+
+Modelamiento_CV<-as.data.frame(Modelamiento_pls)
+set.seed(100000)
+
+for(i in 1:nrow(Modelamiento_CV)){
+
+##Removing i row from 1 to the number of rows of the dataset (each cycle left one out)
+      
+Calibracion_CV<-Modelamiento_CV[-i,]
+Prueba_CV<-Modelamiento_CV[i,]
+      
+##Training the model
+Modelo_PLS_CV=plsr(pIC50~.,data=Calibracion_CV,scale=FALSE  ,ncomp=15)
+
+##Predicting the i-row
+Predicho_CV=predict(Modelo_PLS_CV ,Prueba_CV,ncomp=15)
+
+##Predicted values for each i-row
+Pred_CV[i]<-Predicho_CV
+      
+##Model for each i-row
+Modelo_i[[i]]<-Modelo_PLS_CV
+
+      }
+```
+<p style='text-align: justify;'>Calculating the metrics and plotting the results</p>
+
+```{r}
+
+##Unscaling observed and predicted data
+
+Observado_LOO<-Observado_tr
+Predicho_LOO<-Desescalar(Pred_CV)
+      
+LOO_df<-as.data.frame(cbind(Observado_LOO,Predicho_LOO))
+rownames(LOO_df)<-Muestra[1:20]
+
+##Metric calculation
+LOO_M<-Metrica_LOO(Observado_LOO,Predicho_LOO)
+
+LOO_M<-(do.call(rbind, LOO_M))
+LOO_M<-round(LOO_M,1)
+print(LOO_M)
+```
+```{r}
+# Basic scatter plot LOO-CV
+ggplot(LOO_df, aes(x=Observado_LOO, y=Predicho_LOO)) + geom_point()+geom_smooth(method=lm)+ggtitle("Observed VS predicted (LOO-CV)")+xlab("Observed")+ylab("Predicted")+ geom_text(aes(label=rownames(LOO_df)),check_overlap = TRUE,hjust=0, vjust=0)+coord_cartesian(xlim =c(4.5,8.5), ylim = c(4.5,8.5))
+ggsave("plsloo.png")
+
+
+```
+
+### Y-randomization test for PLS model:
+
+<p style='text-align: justify;'>Another statistical test to get insight about the reliability of the QSAR model is the Y-randomization. In this algorithm, the outcome variable (Y=pIC<sub>50</sub>) is randomized, and in each iteration a new model is build. The R<sup>2</sup> for all the random models should be worse than the R<sup>2</sup> from the constructed model. This test tries to prove that the model build does not come from random chance.</p>
+
+```{r}
+##50-fold loop for Y-randomization
+
+##Empty list for store the data that comes from the loop
+
+Score_Y<-list()    
+set.seed(100000)
+
+for (i in 1:50){
+  
+##Shuffling the outcome (pIC50), and building training and test sets with this randomized dataset
+Dataset_Y_shuffle<-as.data.frame(Dataset_S)
+Y_shuffle<-sample(Dataset_S[,275],replace=FALSE)
+Dataset_Y_shuffle[,275]<-Y_shuffle
+  
+Modelado_shuffle<-Dataset_Y_shuffle[Muestra,]
+Prueba_shuffle<-Dataset_Y_shuffle[-Muestra,]
+  
+##Training the model with randomized outcome data
+
+Modelo_Lineal_Y<-plsr(pIC50~.,data=Modelado_shuffle,scale=FALSE,ncomp=15) 
+
+##Predicting test set with randomized outcome data
+
+Pred_Y = predict(Modelo_Lineal_Y ,Prueba_shuffle,ncomp=15)
+
+##Unscaling data
+
+Observado_Y <- Desescalar(Prueba_shuffle$pIC50)
+Predicho_Y <- Desescalar(Pred_Y)
+  
+##Model metrics 
+Score_Y[[i]]<-Metrica_LOO(Observado_Y,Predicho_Y)
+  }
+
+##Extracting metrics from the loop
+Resul_Y_Random<-as.data.frame(t(unlist(Score_Y)))
+
+par_indexes<-seq(2,100,2)
+impar_indexes<-seq(1,99,2)
+
+RMSEY<-Resul_Y_Random[,par_indexes]
+Q2Y<-Resul_Y_Random[,impar_indexes]
+Q2Y<-as.data.frame(t(Q2Y))
+colnames(Q2Y)<-"R2"
+rownames(Q2Y)<-c(1:50)
+Q2Y$Iteration<-c(1:50)
+
+
+library(ggplot2)
+
+# Basic scatter plot Y-randomization
+ggplot(Q2Y, aes(x=Iteration,y=R2)) + geom_point()+geom_line(aes(y=0.6),linetype="dotted",color='red')+ggtitle("Y-randomization test (R²=0.6)")+ylab("R²")
+ggsave("plseyrandom.png")
+
+
+```
+<p style='text-align: justify;'>Since none of the randomized models had a better performance than the constructed model (R<sup>2</sup>=0.6), the QSAR is reliable.</p>
+
+### Applicability domain (AD) of the QSAR model
+
+<p style='text-align: justify;'>The last step for the development of this QSAR model is the determination of the chemical space gives by the molecular descriptors used to construct the regression. The AD permits to interpolate in a chemical region with reliable results. Finally, the AD also detects possible outliers that are being extrapolated from the model. For more information about AD theory, please refer to the Manuscript.</p>
+
+```{r warning=FALSE, message=FALSE}
+###For training set
+
+##Getting leverages from the model
+X_T<-as.matrix(scor_plot)
+X_t<-(as.matrix(Modelo_PLS$Yscores))[,1:2]
+
+H_pls <- X_t %*% solve(t(X_T) %*% X_T) %*% t(X_t)
+hi<-diag(H_pls) ##Leverages
+
+##Getting standardized residuals from the model
+obs<-Observado_LOO
+pred <-Predicho_LOO
+
+Residuales<-(obs-pred)
+K<-20
+Stand_Residuales<-Residuales/sd(Residuales) ##Residuales 
+
+##Estimating warning leverage (every molecule that relies outside this limit, can't be interpolated and its predicted value is not trustworthy)
+
+h_asterisco<-(3*(15+1))/K ##Fifteen regressors (PC) and 20 observations h*=3(p+1)/n
+
+###For test set
+
+##Leverages from test set
+
+H_1<- predict(Modelo_PLS_Final,Prueba_pls,ncomp=1)
+H_2<- predict(Modelo_PLS_Final,Prueba_pls,ncomp=2)
+X_prueba<-(cbind(H_1,H_2))
+
+H_test <- X_prueba %*% solve(t(X_T) %*% X_T) %*% t(X_prueba) ##Hat matrix for test
+hi_test<-diag(H_test) ##Leverages
+
+
+##Mathematical calculation of standardized residuals from test prediction
+
+obs_test<-Prueba_pls$pIC50
+pred_test<- predict(Modelo_PLS_Final,Prueba_pls,ncomp=15)
+  
+Residuales_test<-(obs_test-pred_test)
+Stand_Residuales_test<-Residuales_test/sd(Residuales_test)
+
+
+##Dataframes for training and test set of leverages and standardized residuals
+
+Will_training<-as.data.frame(cbind(hi,Stand_Residuales))
+colnames(Will_training)<-c("Leverages", "Standardized_residuals")
+rownames(Will_training)<-Muestra[1:20]
+
+Will_test<-as.data.frame(cbind(hi_test,Stand_Residuales_test))
+colnames(Will_test)<-c("Leverages", "Standardized_residuals")
+rownames(Will_test)<-c("4","5","10","15","16","19","26")
+
+library(ggplot2)
+
+Will_training$cat <- "Training"
+Will_test$cat <- "Test"
+
+ggplot_William<-rbind(Will_training,Will_test)
+
+# Basic scatter plot Williams plot
+
+ggplot(ggplot_William, aes(x=Leverages, y=Standardized_residuals, color = cat))+
+geom_point()+ xlim(0,1) +geom_text(label=rownames(ggplot_William),check_overlap = TRUE,hjust = 1,vjust = 1)+ geom_vline(xintercept=2.4, linetype="dotted",color="red") + geom_hline(yintercept=c(-3,3), linetype="dotted",color="blue")+ggtitle("Williams plot (Applicability domain of PLS regression)")+ylab("Standardized residuals")+xlim(0,3)
+ggsave("plsad.png")
+
+
+```
+<p style='text-align: justify;'>With the Williams plot, the AD of the model is determined, and apparently all the training and test molecules are correctly interpolated into the chemical space defined by the molecular descriptors selected.</p>
+
+### Importance of each descriptor on the PLS model
+
+<p style='text-align: justify;'>In order to get some mechanistic insight about the PLS model, let's plot the weight of each descriptor on the PC coefficient used for the PLS regression</p>
+
+```{r warning=FALSE, message=FALSE}
+##Importance of each molecular descriptor into the PLS regression
+
+png("plscoef.png") 
+coefplot(Modelo_PLS_Final,xlab = "Descriptor",
+         ylab = "Coefficient",
+         main="Descriptor coefficients on the PLS model",comps=15)
+dev.off() 
+
+
+##Getting the most important features
+PLS_Coeficientes<-as.data.frame(Modelo_PLS_Final$coefficients)
+
+Final_import_Desc<-PLS_Coeficientes[order(PLS_Coeficientes$`pIC50.15 comps`,decreasing = TRUE),]
+head(Final_import_Desc)
+```
+<p style='text-align: justify;'>Now, the QSAR model is finished.</p>
+
+
+# Virtual screening 
+
+<p style='text-align: justify;'>After the development of the QSAR model; two databases of molecules were taken from **PubChem** and **ZINC**. This molecules were filter by two parameters: **Glucosamine-like molecules** and **Lipinski rule of five**. 
+
+The *Lipinski rule of five* is a empirical rule for druglikeness of molecules, the physicochemical parameters for this rule are:
+
+* No more than 5 hydrogen bond donors.
+* No more than 10 hydrogen bond acceptors.
+* A molecular mass less than 500 g/mol.
+* An octanol-water partition coefficient (Log P) that does not exceed 5.
+
+The *glucosamine-like molecules* are mandatory to kept into the databases since the QSAR was development under glucosamine derivative molecules, and the chemical space is defined or interpolated under this scaffold.
+
+After the filtering we got 155 unique molecules in SMILES format. The correct protonation state for each molecule was carried out by **Gypsum-DL software** with a pH between 7.0 and 7.2. The tautomer and isomer distribution for each molecule was carried out by the same software, and for each molecule was generated two (310) and three (465) possible tautomer/conformer and protonated states in order to get a better insight of all the chemical states on the dataset.
+
+Finally, the datasets were uploaded into OCHEM web platform in order to calculate mechanistic interpretable 2D and 3D molecular descriptors (the same molecular descriptors used for the QSAR development).</p>
+
+
+### Two variants
+
+```{r warning=FALSE, message=FALSE}
+##Invoking datasets
+library(dplyr)
+
+##Alvadescriptors
+alvdesc_2<- read.csv("alvdesc-2.csv",stringsAsFactors=FALSE)
+
+##MOPAC
+mopac_2 <- read.csv("mopac-2.csv",stringsAsFactors=FALSE)
+
+##Joining both molecular descriptor datasets
+
+mopac_2$SMILES<-NULL
+
+VS_db<-cbind(alvdesc_2,mopac_2)
+SMILES<-VS_db$SMILES
+
+
+
+```
+### Cleaning datasets
+
+```{r warning=FALSE, message=FALSE}
+##Converting to numeric
+VS_db<-apply(VS_db, 2, as.numeric)
+VS_db<-as.data.frame(VS_db)
+VS_db$SMILES<-NULL
+
+##Scaling data
+Mean_VS<-as.data.frame(t(Mean))
+SD_VS<-as.data.frame(t(SD))
+Mean_VS$pIC50<-NULL
+SD_VS$pIC50<-NULL
+
+VS_db<-select(VS_db,names(Mean_VS))
+
+VS_db<-as.matrix(VS_db)
+VS_db_S<-scale(VS_db,center = Mean_VS, scale = SD_VS)
+
+```
+### Predicting activites
+
+```{r warning=FALSE, message=FALSE}
+Predicho_out_VS <-as.data.frame(predict(Modelo_PLS_Final,as.data.frame(VS_db_S),ncomp=15))
+
+Predicho_out_VS<-Desescalar(Predicho_out_VS)                
+ID<-c(1:310)
+
+Predicho_out_VS<-cbind(ID,Predicho_out_VS)
+
+colnames(Predicho_out_VS)<-c("Index","pIC50")
+
+##Prediction
+Predicho_out_VS<-as.data.frame(Predicho_out_VS)
+class(Predicho_out_VS)
+
+write.csv(Predicho_out_VS[order(Predicho_out_VS$pIC50,decreasing = TRUE),],file = "VS_PLS-2.csv", row.names = FALSE)
+head(Predicho_out_VS)
+```
+### Three variants
+
+```{r warning=FALSE, message=FALSE}
+##Invoking datasets
+library(dplyr)
+
+##Alvadescriptors
+alvdesc_3<- read.csv("alvdesc-3.csv",stringsAsFactors=FALSE)
+
+##MOPAC
+mopac_3 <- read.csv("mopac-3.csv",stringsAsFactors=FALSE)
+
+##Joining both molecular descriptor datasets
+
+mopac_3$SMILES<-NULL
+
+VS_db3<-cbind(alvdesc_3,mopac_3)
+SMILES3<-VS_db3$SMILES
+
+
+
+```
+### Cleaning datasets
+
+```{r warning=FALSE, message=FALSE}
+##Converting to numeric
+VS_db3<-apply(VS_db3, 2, as.numeric)
+VS_db3<-as.data.frame(VS_db3)
+VS_db3$SMILES<-NULL
+
+##Scaling data
+Mean_VS<-as.data.frame(t(Mean))
+SD_VS<-as.data.frame(t(SD))
+Mean_VS$pIC50<-NULL
+SD_VS$pIC50<-NULL
+
+VS_db3<-select(VS_db3,names(Mean_VS))
+
+VS_db3<-as.matrix(VS_db3)
+VS_db3_S<-scale(VS_db3,center = Mean_VS, scale = SD_VS)
+
+
+```
+### Predicting activites
+
+```{r warning=FALSE, message=FALSE}
+Predicho_out_VS3<-as.data.frame(predict(Modelo_PLS_Final,as.data.frame(VS_db3_S),ncomp=15))
+Predicho_out_VS3<-Desescalar(Predicho_out_VS3)                
+ID<-c(1:465)
+
+Predicho_out_VS3<-cbind(ID,Predicho_out_VS3)
+
+colnames(Predicho_out_VS3)<-c("Index","pIC50")
+
+##Prediction
+Predicho_out_VS3<-as.data.frame(Predicho_out_VS3)
+class(Predicho_out_VS3)
+
+write.csv(Predicho_out_VS3[order(Predicho_out_VS3$pIC50,decreasing = TRUE),],file = "VS_PLS-3.csv", row.names = FALSE)
+head(Predicho_out_VS3)
+
+```

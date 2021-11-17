@@ -1,0 +1,562 @@
+---
+title: "Virtual Screening of two ligand databases using five QSAR models"
+author: "Edward Francisco Mendez-Otalvaro, Daniel Alberto Barragan, Isaias Lans-Vargas"
+date: "2021" 
+output:
+html_document: default
+bibliography: ECR_bib.bib
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+library(formatR)
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=80),tidy=TRUE)
+```
+## Importing all datasets with the molecules
+
+<p style='text-align: justify;'>After the virtual screening with each QSAR model, let's concatenate all the outputs to analyze the molecules and ranking them according to different scores</p>
+
+### Importing output from virtual screening of each QSAR model
+
+
+## Index of the models
+
+```{r}
+indices_2<-read.csv("indice_2.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+indices_2<-cbind(indices_2,c(1:310))
+colnames(indices_2)<-c("Label","Index")
+
+indices_3<-read.csv("indice_3.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+indices_3<-cbind(indices_3,c(1:465))
+colnames(indices_3)<-c("Label","Index")
+
+```
+
+## QSAR Results
+
+```{r}
+
+##LASSO VS
+library(knitr)
+library(dplyr)
+
+LASSO_2<-read.csv("VS_LASSO-2.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+LASSO_2<-left_join(LASSO_2,indices_2,by="Index")
+
+LASSO_3<-read.csv("VS_LASSO-3.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+LASSO_3<-left_join(LASSO_3,indices_3,by="Index")
+
+##LASSO-MLR VS
+L_MLR_2<-read.csv("VS_MLRLASSO-2.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+L_MLR_2<-left_join(L_MLR_2,indices_2,by="Index")
+
+L_MLR_3<-read.csv("VS_MLRLASSO-3.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+L_MLR_3<-left_join(L_MLR_3,indices_3,by="Index")
+
+##GA-MLR VS
+GA_MLR_2<-read.csv("VS_GAMLR-2.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+GA_MLR_2<-left_join(GA_MLR_2,indices_2,by="Index")
+
+GA_MLR_3<-read.csv("VS_GAMLR-3.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+GA_MLR_3<-left_join(GA_MLR_3,indices_3,by="Index")
+
+##PLS VS  
+PLS_2<-read.csv("VS_PLS-2.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+PLS_2<-left_join(PLS_2,indices_2,by="Index")
+
+PLS_3<-read.csv("VS_PLS-3.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+PLS_3<-left_join(PLS_3,indices_3,by="Index")
+
+##RSM VS  
+RSM_2<-read.csv("VS_RSMMLR-2.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+RSM_2<-left_join(RSM_2,indices_2,by="Index")
+
+RSM_3<-read.csv("VS_RSMMLR-3.csv",stringsAsFactors=FALSE,header = TRUE, sep = ",")
+RSM_3<-left_join(RSM_3,indices_3,by="Index")
+
+```
+
+### Concatenating datasets
+
+```{r}
+##Concatenating datasets
+
+set.seed(10)
+Moleculas_2<-as.data.frame(cbind(LASSO_2$Index,L_MLR_2$Index,GA_MLR_2$Index,PLS_2$Index,RSM_2$Index))
+colnames(Moleculas_2)<-c("LASSO","LASSO-MLR","GA-MLR","PLS","RSM")
+
+Nombres_2<-as.data.frame(cbind(LASSO_2$Label,L_MLR_2$Label,GA_MLR_2$Label,PLS_2$Label,RSM_2$Label))
+colnames(Nombres_2)<-c("LASSO","LASSO-MLR","GA-MLR","PLS","RSM")
+
+
+Moleculas_3<-as.data.frame(cbind(LASSO_3$Index,L_MLR_3$Index,GA_MLR_3$Index,PLS_3$Index,RSM_3$Index))
+colnames(Moleculas_3)<-c("LASSO","LASSO-MLR","GA-MLR","PLS","RSM")
+
+Nombres_3<-as.data.frame(cbind(LASSO_3$Label,L_MLR_3$Label,GA_MLR_3$Label,PLS_3$Label,RSM_3$Label))
+colnames(Nombres_3)<-c("LASSO","LASSO-MLR","GA-MLR","PLS","RSM")
+```
+### Frequency of apparition of the molecules
+
+```{r}
+##Two variants
+Frecuencia_2<-table(unlist(Moleculas_2[1:20,]))
+Frecuencia_2<-as.data.frame(Frecuencia_2)
+colnames(Frecuencia_2)<-c("Molecule","Occurrence frequency 2")
+Frecuencia_2$Molecule<-as.numeric(as.character(Frecuencia_2$Molecule)) 
+
+##Three variants
+Frecuencia_3<-table(unlist(Moleculas_3[1:20,]))
+Frecuencia_3<-as.data.frame(Frecuencia_3)
+colnames(Frecuencia_3)<-c("Molecule","Occurrence frequency 3")
+Frecuencia_3$Molecule<-as.numeric(as.character(Frecuencia_3$Molecule)) 
+
+```
+### Molecule frequency per QSAR model
+
+### Two variants
+```{r}
+##Matching each frequency with initial index
+
+I_INDEX_2<-match(Frecuencia_2$Molecule,Moleculas_2$LASSO)
+II_INDEX_2<-match(Frecuencia_2$Molecule,Moleculas_2$`LASSO-MLR`)
+III_INDEX_2<-match(Frecuencia_2$Molecule,Moleculas_2$`GA-MLR`)
+IV_INDEX_2<-match(Frecuencia_2$Molecule,Moleculas_2$PLS)
+V_INDEX_2<-match(Frecuencia_2$Molecule,Moleculas_2$RSM)
+
+Frecuencia_2_final<-as.data.frame(cbind(Frecuencia_2$Molecule,I_INDEX_2,II_INDEX_2,III_INDEX_2,IV_INDEX_2,V_INDEX_2))
+colnames(Frecuencia_2_final)<-c("Molecule","LASSO","LASSO_MLR","GA_MLR","PLS","RSM")
+kable(Frecuencia_2_final[1:20,],align = "cccccc")
+```
+### Three variants
+```{r}
+I_INDEX_3<-match(Frecuencia_3$Molecule,Moleculas_3$LASSO)
+II_INDEX_3<-match(Frecuencia_3$Molecule,Moleculas_3$`LASSO-MLR`)
+III_INDEX_3<-match(Frecuencia_3$Molecule,Moleculas_3$`GA-MLR`)
+IV_INDEX_3<-match(Frecuencia_3$Molecule,Moleculas_3$PLS)
+V_INDEX_3<-match(Frecuencia_3$Molecule,Moleculas_3$RSM)
+
+Frecuencia_3_final<-as.data.frame(cbind(Frecuencia_3$Molecule,I_INDEX_3,II_INDEX_3,III_INDEX_3,IV_INDEX_3,V_INDEX_3))
+colnames(Frecuencia_3_final)<-c("Molecule","LASSO","LASSO_MLR","GA_MLR","PLS","RSM")
+kable(Frecuencia_3_final[1:20,],align = "cccccc")
+```
+## Top molecules 
+
+## Top 20 molecules two variants
+
+```{r}
+Moleculas_2_Total<-cbind(Moleculas_2,Nombres_2)
+Moleculas_2_Total<-Moleculas_2_Total[,c(1,6,2,7,3,8,4,9,5,10)]
+
+kable(Moleculas_2_Total[1:20,],align = "cccccccccc")
+```
+
+## Top 20 molecules three variants
+
+```{r}
+Moleculas_3_Total<-cbind(Moleculas_3,Nombres_3)
+Moleculas_3_Total<-Moleculas_3_Total[,c(1,6,2,7,3,8,4,9,5,10)]
+
+kable(Moleculas_3_Total[1:20,],align = "cccccccccc")
+```
+
+## Applying an exponential consensus ranking (ECR) to the prediction to improve the selection of molecules
+
+<p style='text-align: justify;'>Recently, [@Palacio-Rodriguez2019] proposed a new ranking function for virtual screening in molecular docking. According to the paper, this ranking function can be extrapolated into other ranking problems, such as this QSAR prediction. The function is:
+
+\begin{align}
+\mathbf{P(i)} = \mathbf{\frac{1}{\sigma}\sum_{j}^{} \exp(-r_i^j)}
+\end{align}
+
+Where *i* are the *i-th* molecule predicted with the ranking given by the *j-th* model (QSAR). $\sigma$ is the expected value of the exponential distribution. This parameter takes account the number of molecules for each scoring function that will be considered (it can be seen as a threshold of the molecules that will be take account for the consensus). Finally, the sum gives the consensus ranking *P(i)* for the i-th molecule. Let's apply this strategy</p>
+
+### ECR function
+```{r}
+ECR<-function(X,Sig){
+    
+    EC<-(exp(-X/Sig))/Sig
+    
+    output<-EC
+    
+    return(output)
+}
+```
+### ECR for the QSAR models
+
+```{r}
+##Two variants
+ECR_2<-cbind(match(indices_2$Index,Moleculas_2_Total$LASSO),
+match(indices_2$Index,Moleculas_2_Total$`LASSO-MLR`),
+match(indices_2$Index,Moleculas_2_Total$`GA-MLR`),
+match(indices_2$Index,Moleculas_2_Total$PLS),
+match(indices_2$Index,Moleculas_2_Total$RSM))
+colnames(ECR_2)<-c("LASSO","LASSO-MLR","GA-MLR","PLS","RSM")
+
+ECR_Salida_2<-t(as.data.frame(apply(ECR_2,1,ECR,Sig=20)))
+
+Ranking_Consenso_2<-as.data.frame(apply(ECR_Salida_2,1,sum))
+colnames(Ranking_Consenso_2)<-c("ECR")
+row.names(Ranking_Consenso_2)<-as.vector(indices_2$Index)
+Ranking_Consenso_2$ID<-as.vector(indices_2$Index)
+
+Output_ECR_2<-Ranking_Consenso_2[with(Ranking_Consenso_2,order(Ranking_Consenso_2$ECR,decreasing = TRUE)),]
+
+colnames(Output_ECR_2)<-c("ECR","Index")
+Output_ECR_2<-left_join(Output_ECR_2,indices_2,by="Index")
+kable(Output_ECR_2[1:20,],align = "ccc")
+```
+```{r}
+##Three variants
+ECR_3<-cbind(match(indices_3$Index,Moleculas_3_Total$LASSO),
+match(indices_3$Index,Moleculas_3_Total$`LASSO-MLR`),
+match(indices_3$Index,Moleculas_3_Total$`GA-MLR`),
+match(indices_3$Index,Moleculas_3_Total$PLS),
+match(indices_3$Index,Moleculas_3_Total$RSM))
+colnames(ECR_3)<-c("LASSO","LASSO-MLR","GA-MLR","PLS","RSM")
+
+ECR_Salida_3<-t(as.data.frame(apply(ECR_3,1,ECR,Sig=20)))
+
+Ranking_Consenso_3<-as.data.frame(apply(ECR_Salida_3,1,sum))
+colnames(Ranking_Consenso_3)<-c("ECR")
+row.names(Ranking_Consenso_3)<-as.vector(indices_3$Index)
+Ranking_Consenso_3$ID<-as.vector(indices_3$Index)
+
+Ranking_Consenso_3<-as.data.frame(apply(ECR_Salida_3,1,sum))
+colnames(Ranking_Consenso_3)<-c("ECR")
+row.names(Ranking_Consenso_3)<-as.vector(indices_3$Index)
+Ranking_Consenso_3$ID<-as.vector(indices_3$Index)
+
+Output_ECR_3<-Ranking_Consenso_3[with(Ranking_Consenso_3,order(Ranking_Consenso_3$ECR,decreasing = TRUE)),]
+
+colnames(Output_ECR_3)<-c("ECR","Index")
+Output_ECR_3<-left_join(Output_ECR_3,indices_3,by="Index")
+kable(Output_ECR_3[1:20,],align = "ccc")
+```
+
+## Removing variants from the predictions (getting only the first variant per ligand according to each QSAR model)
+
+## Two variants
+
+```{r}
+Moleculas_2_curado<-cbind(Moleculas_2_Total$LASSO[!duplicated(Moleculas_2_Total$LASSO.1)],Moleculas_2_Total$LASSO.1[!duplicated(Moleculas_2_Total$LASSO.1)],Moleculas_2_Total$`LASSO-MLR`[!duplicated(Moleculas_2_Total$`LASSO-MLR.1`)],Moleculas_2_Total$`LASSO-MLR.1`[!duplicated(Moleculas_2_Total$`LASSO-MLR.1`)],Moleculas_2_Total$`GA-MLR`[!duplicated(Moleculas_2_Total$`GA-MLR.1`)],Moleculas_2_Total$`GA-MLR.1`[!duplicated(Moleculas_2_Total$`GA-MLR.1`)],Moleculas_2_Total$PLS[!duplicated(Moleculas_2_Total$PLS.1)],Moleculas_2_Total$PLS.1[!duplicated(Moleculas_2_Total$PLS.1)],Moleculas_2_Total$RSM[!duplicated(Moleculas_2_Total$RSM.1)],Moleculas_2_Total$RSM.1[!duplicated(Moleculas_2_Total$RSM.1)])
+
+colnames(Moleculas_2_curado)<-c("Lasso_Index","Lasso_Molecule","Lasso-MLR_Index","Lasso-MLR_Molecule","GA-MLR_Index","GA-MLR_Molecule","PLS_Index","PLS_Molecule","RSM_Index","RSM_Molecule")
+
+Moleculas_2_curado[,1]<-ceiling(as.numeric(Moleculas_2_curado[,1])/2)
+Moleculas_2_curado[,3]<-ceiling(as.numeric(Moleculas_2_curado[,3])/2)
+Moleculas_2_curado[,5]<-ceiling(as.numeric(Moleculas_2_curado[,5])/2)
+Moleculas_2_curado[,7]<-ceiling(as.numeric(Moleculas_2_curado[,7])/2)
+Moleculas_2_curado[,9]<-ceiling(as.numeric(Moleculas_2_curado[,9])/2)
+
+kable(Moleculas_2_curado[1:20,],align = "cccccccccc")
+```
+## Three variants
+```{r}
+Moleculas_3_curado<-cbind(Moleculas_3_Total$LASSO[!duplicated(Moleculas_3_Total$LASSO.1)],Moleculas_3_Total$LASSO.1[!duplicated(Moleculas_3_Total$LASSO.1)],Moleculas_3_Total$`LASSO-MLR`[!duplicated(Moleculas_3_Total$`LASSO-MLR.1`)],Moleculas_3_Total$`LASSO-MLR.1`[!duplicated(Moleculas_3_Total$`LASSO-MLR.1`)],Moleculas_3_Total$`GA-MLR`[!duplicated(Moleculas_3_Total$`GA-MLR.1`)],Moleculas_3_Total$`GA-MLR.1`[!duplicated(Moleculas_3_Total$`GA-MLR.1`)],Moleculas_3_Total$PLS[!duplicated(Moleculas_3_Total$PLS.1)],Moleculas_3_Total$PLS.1[!duplicated(Moleculas_3_Total$PLS.1)],Moleculas_3_Total$RSM[!duplicated(Moleculas_3_Total$RSM.1)],Moleculas_3_Total$RSM.1[!duplicated(Moleculas_3_Total$RSM.1)])
+
+colnames(Moleculas_3_curado)<-c("Lasso_Index","Lasso_Molecule","Lasso-MLR_Index","Lasso-MLR_Molecule","GA-MLR_Index","GA-MLR_Molecule","PLS_Index","PLS_Molecule","RSM_Index","RSM_Molecule")
+
+Moleculas_3_curado[,1]<-ceiling(as.numeric(Moleculas_3_curado[,1])/3)
+Moleculas_3_curado[,3]<-ceiling(as.numeric(Moleculas_3_curado[,3])/3)
+Moleculas_3_curado[,5]<-ceiling(as.numeric(Moleculas_3_curado[,5])/3)
+Moleculas_3_curado[,7]<-ceiling(as.numeric(Moleculas_3_curado[,7])/3)
+Moleculas_3_curado[,9]<-ceiling(as.numeric(Moleculas_3_curado[,9])/3)
+
+kable(Moleculas_3_curado[1:20,],align = "cccccccccc")
+```
+
+## ECR two variants
+
+```{r}
+Output_ECR_2_curado<-cbind(Output_ECR_2$ECR[!duplicated(Output_ECR_2$Label)],Output_ECR_2$Index[!duplicated(Output_ECR_2$Label)],Output_ECR_2$Label[!duplicated(Output_ECR_2$Label)])
+colnames(Output_ECR_2_curado)<-c("ECR","Index","Molecule")
+
+Output_ECR_2_curado[,2]<-ceiling(as.numeric(Output_ECR_2_curado[,2])/2)
+
+kable(Output_ECR_2_curado[1:20,],align = "ccc")
+```
+
+## ECR three variants
+
+```{r}
+Output_ECR_3_curado<-cbind(Output_ECR_3$ECR[!duplicated(Output_ECR_3$Label)],Output_ECR_3$Index[!duplicated(Output_ECR_3$Label)],Output_ECR_3$Label[!duplicated(Output_ECR_3$Label)])
+colnames(Output_ECR_3_curado)<-c("ECR","Index","Molecule")
+
+Output_ECR_3_curado[,2]<-ceiling(as.numeric(Output_ECR_3_curado[,2])/3)
+kable(Output_ECR_3_curado[1:20,],align = "ccc")
+```
+## Removing LASSO predictions since this QSAR and LASSO-MLR have the same output prediction and are biasing ECR algorithm
+
+## Two variants
+
+```{r}
+ECR_2_final<-cbind(match(indices_2$Index,Moleculas_2_Total$`LASSO-MLR`),
+match(indices_2$Index,Moleculas_2_Total$`GA-MLR`),
+match(indices_2$Index,Moleculas_2_Total$PLS),
+match(indices_2$Index,Moleculas_2_Total$RSM))
+colnames(ECR_2_final)<-c("LASSO-MLR","GA-MLR","PLS","RSM")
+
+ECR_Salida_2_final<-t(as.data.frame(apply(ECR_2_final,1,ECR,Sig=20)))
+
+Ranking_Consenso_2_final<-as.data.frame(apply(ECR_Salida_2_final,1,sum))
+colnames(Ranking_Consenso_2_final)<-c("ECR")
+row.names(Ranking_Consenso_2_final)<-as.vector(indices_2$Index)
+Ranking_Consenso_2_final$ID<-as.vector(indices_2$Index)
+
+Output_ECR_2_final<-Ranking_Consenso_2_final[with(Ranking_Consenso_2_final,order(Ranking_Consenso_2_final$ECR,decreasing = TRUE)),]
+
+colnames(Output_ECR_2_final)<-c("ECR","Index")
+Output_ECR_2_final<-left_join(Output_ECR_2_final,indices_2,by="Index")
+
+Output_ECR_2_final<-cbind(Output_ECR_2_final$ECR[!duplicated(Output_ECR_2_final$Label)],Output_ECR_2_final$Index[!duplicated(Output_ECR_2_final$Label)],Output_ECR_2_final$Label[!duplicated(Output_ECR_2_final$Label)])
+colnames(Output_ECR_2_final)<-c("ECR","Index","Molecule")
+
+
+Output_ECR_2_final[,2]<-ceiling(as.numeric(Output_ECR_2_final[,2])/2)
+
+kable(Output_ECR_2_final[1:20,],align = "ccc")
+write.csv(Output_ECR_2_final,"Output_ECR_2_final.csv", row.names = FALSE)
+```
+
+## Three variants
+
+```{r}
+ECR_3_final<-cbind(match(indices_3$Index,Moleculas_3_Total$`LASSO-MLR`),
+match(indices_3$Index,Moleculas_3_Total$`GA-MLR`),
+match(indices_3$Index,Moleculas_3_Total$PLS),
+match(indices_3$Index,Moleculas_3_Total$RSM))
+colnames(ECR_3_final)<-c("LASSO-MLR","GA-MLR","PLS","RSM")
+
+ECR_Salida_3_final<-t(as.data.frame(apply(ECR_3_final,1,ECR,Sig=20)))
+
+Ranking_Consenso_3_final<-as.data.frame(apply(ECR_Salida_3_final,1,sum))
+colnames(Ranking_Consenso_3_final)<-c("ECR")
+row.names(Ranking_Consenso_3_final)<-as.vector(indices_3$Index)
+Ranking_Consenso_3_final$ID<-as.vector(indices_3$Index)
+
+Output_ECR_3_final<-Ranking_Consenso_3_final[with(Ranking_Consenso_3_final,order(Ranking_Consenso_3_final$ECR,decreasing = TRUE)),]
+
+colnames(Output_ECR_3_final)<-c("ECR","Index")
+Output_ECR_3_final<-left_join(Output_ECR_3_final,indices_3,by="Index")
+
+Output_ECR_3_final<-cbind(Output_ECR_3_final$ECR[!duplicated(Output_ECR_3_final$Label)],Output_ECR_3_final$Index[!duplicated(Output_ECR_3_final$Label)],Output_ECR_3_final$Label[!duplicated(Output_ECR_3_final$Label)])
+colnames(Output_ECR_3_final)<-c("ECR","Index","Molecule")
+
+Output_ECR_3_final[,2]<-ceiling(as.numeric(Output_ECR_3_final[,2])/3)
+
+kable(Output_ECR_3_final[1:20,],align = "ccc")
+write.csv(Output_ECR_3_final,"Output_ECR_3_final.csv", row.names = FALSE)
+```
+
+## Top 3 molecules for each QSAR method
+
+## Two variants // LASSO & MLR-LASSO
+
+<p style='text-align: justify;'>**Molecule 115**
+
+<center>![Molecule 115](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/115.png)</center></p>
+
+<center>![Molecule 115_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/115_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 215**
+
+<center>![Molecule 215](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/215.png)</center></p>
+
+<center>![Molecule 215_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/215_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 275**
+
+<center>![Molecule 275](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/275.png)</center></p>
+
+<center>![Molecule 275_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/275_3d.png)</center></p>
+
+## Two variants // GA-MLR
+
+<p style='text-align: justify;'>**Molecule 5**
+
+<center>![Molecule 5](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/5.png)</center></p>
+
+<center>![Molecule 5_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/5_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 11**
+
+<center>![Molecule 11](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/11.png)</center></p>
+
+<center>![Molecule 11_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/11_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 246**
+
+<center>![Molecule 246](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/246.png)</center></p>
+
+<center>![Molecule 246_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/246_3d.png)</center></p>
+
+## Two variants // PLS
+
+<p style='text-align: justify;'>**Molecule 22**
+
+<center>![Molecule 22](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/22.png)</center></p>
+
+<center>![Molecule 22_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/22_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 125**
+
+<center>![Molecule 125](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/125.png)</center></p>
+
+<center>![Molecule 125_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/125_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 8**
+
+<center>![Molecule 8](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/8.png)</center></p>
+
+<center>![Molecule 8_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/8_3d.png)</center></p>
+
+## Two variants // RSM
+
+<p style='text-align: justify;'>**Molecule 5**
+
+<center>![Molecule 5](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/5.png)</center></p>
+
+<center>![Molecule 5_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/5_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 11**
+
+<center>![Molecule 11](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/11.png)</center></p>
+
+<center>![Molecule 11_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/11_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 147**
+
+<center>![Molecule 147](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/147.png)</center></p>
+
+<center>![Molecule 147_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/147_3d.png)</center></p>
+
+## Three variants // LASSO & MLR-LASSO
+
+<p style='text-align: justify;'>**Molecule 172**
+
+<center>![Molecule 172](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/172.png)</center></p>
+
+<center>![Molecule 172_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/172_3d.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 322**
+
+<center>![Molecule 322](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/322.png)</center></p>
+
+<center>![Molecule 322_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/322_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 412**
+
+<center>![Molecule 412](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/412.png)</center></p>
+
+<center>![Molecule 412_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/412_3D.png)</center></p>
+
+## Three variants // GA-MLR
+
+<p style='text-align: justify;'>**Molecule 7**
+
+<center>![Molecule 7](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/7.png)</center></p>
+
+<center>![Molecule 7_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/7_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 16**
+
+<center>![Molecule 16](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/16.png)</center></p>
+
+<center>![Molecule 16_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/16_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 367**
+
+<center>![Molecule 367](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/367.png)</center></p>
+
+<center>![Molecule 367_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/367_3D.png)</center></p>
+
+## Three variants // PLS
+
+<center><p style='text-align: justify;'>**Molecule 10**
+
+![Molecule 10](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/10.png)</center></p>
+
+![Molecule 10_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/10_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 187**
+
+<center>![Molecule 187](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/187.png)</center></p>
+
+<center>![Molecule 187_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/187_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 192**
+
+<center>![Molecule 192](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/192.png)</center></p>
+
+<center>![Molecule 192_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/192_3D.png)</center></p>
+
+## Three variants // RSM
+
+<p style='text-align: justify;'>**Molecule 7**
+
+<center>![Molecule 7](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/7.png)</center></p>
+
+<center>![Molecule 7_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/7_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 16**
+
+<center>![Molecule 16](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/16.png)</center></p>
+
+<center>![Molecule 16_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/16_3D.png)</center></p>
+<p style='text-align: justify;'>**Molecule 220**
+
+<center>![Molecule 220](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/220.png)</center></p>
+
+<center>![Molecule 220_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/220_3D.png)</center></p>
+
+## Top 3 molecules for exponential consensus ranking (ECR):
+
+## Two variants
+
+<p style='text-align: justify;'>**Molecule 5**
+
+<center>![Molecule 5](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/5.png)</center></p>
+
+<center>![Molecule 5_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/5_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 11**
+
+<center>![Molecule 11](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/11.png)</center></p>
+
+<center>![Molecule 11_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/11_3D.png)</center></p>
+
+<center><p style='text-align: justify;'>**Molecule 22**
+
+![Molecule 22](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/22.png)</center></p>
+
+![Molecule 22_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/2_fotos/22_3D.png)</center></p>
+
+## Three variants
+
+<p style='text-align: justify;'>**Molecule 7**
+
+<center>![Molecule 7](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/7.png)</center></p>
+
+<center>![Molecule 7_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/7_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 16**
+
+<center>![Molecule 16](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/16.png)</center></p>
+
+<center>![Molecule 16_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/16_3D.png)</center></p>
+
+<p style='text-align: justify;'>**Molecule 123**
+
+<center>![Molecule 172](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/172.png)</center></p>
+
+<center>![Molecule 172_3D](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/3_fotos/172_3D.png)</center></p>
+
+## Molecular descriptors
+
+<p style='text-align: justify;'>One of the most important feature of these QSAR models are their physicochemical interpretation, since the correlation between these characteristics and the biological activity of the ligands can be used to propose new ligands and to get more insights about the mechanism of action.</p>
+
+<p style='text-align: justify;'><center>![Molecular descriptors](D:/Maestria en ciencias-quimica/Tesis/Simulaciones/QSAR/Virtual_Screening/Chemical_descriptors.png)</center></p>
+
+<p style='text-align: justify;'>So, the common physicochemical features are the presence of C-S atoms at a certain topological distance, and at least one hydrogen bond donator and one hydrogen bond aceptor with a liphophilic group and at least one 6-membered ring. Please refer to the manuscript to get more information about</p>
+
+## References

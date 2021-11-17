@@ -1,0 +1,105 @@
+<html> 
+ <head> 
+ <title>Pharmacophore results</title> 
+ <style> 
+ body { 
+ background-repeat: no-repeat; 
+ margin: 30 0 0 30; 
+ font-size: 13px; 
+ font-family: verdana, sans; 
+ }  
+ a { 
+ color: #B00000; 
+ } 
+ td { 
+ font-family: verdana, sans; 
+ font-size: 13px; 
+ } 
+ hr { 
+ height: 1px; 
+ } 
+ .lineBorder { 
+ border-bottom: 1px solid #e1e1e1; 
+ } 
+ input { 
+ border: solid 1px; 
+ } 
+ input.butt { 
+ background: #FFF; 
+ color: #B00000; 
+ } 
+ </style> 
+ </head> 
+ <body> 
+ <table> 
+ <tbody> 
+ <tr> 
+ <td height="20"><img src="http://bioinfo3d.cs.tau.ac.il/pharma/logo_small.png" alt="logo"> 
+ </td> 
+ </tr> 
+ <tr> 
+ <td valign="top"> 
+ [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/about.html">About</a>] [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/index.html">WebServer</a>] [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/faq.html">FAQ</a>] [<a href="http://bioinfo3d.cs.tau.ac.il/pharma/help.html">Help / Getting Started</a>] Contact: <a href="mailto:ppdock@tau.ac.il">ppdock@tau.ac.il</a> 
+ <br> 
+ </td> 
+ <td valign="top"><br> 
+ </td> 
+ </tr> 
+ <tr> 
+ <td colspan="2"> 
+ <hr style="width: 100%; height: 2px;"></td> 
+ </tr> 
+ <tr> 
+ </tr> </tbody> 
+ </table> 
+ <br>
+
+<font color=blue><center><strong>Input Molecules:</center></font></strong>
+<script type="text/javascript" language="javascript" src="/home/edward/Documentos/Farmacoforo/PharmaGist/jmol-14.31.34//Jmol.js"></script>
+<script type="text/javascript" language="javascript"> jmolInitialize("/home/edward/Documentos/Farmacoforo/PharmaGist/jmol-14.31.34/"); </script> 
+<table cellspacing=2 cellpadding=0 width=95%>
+<tr bgcolor=white><td>
+<table cellspacing=5 cellpadding=0 width=50%>
+<tr bgcolor=99CCFF><td>#</td>
+<td>Molecule</td><td>Show/Hide molecule/features</td><td> Atoms</td>
+<td>Features</td>
+<td>Spatial Features</td>
+<td bgcolor=cyan>Aromatic</td>
+<td bgcolor=lightgrey>Hydrophobic</td>
+<td bgcolor=yellow>Donors</td>
+<td bgcolor=#77FF99>Acceptors</td>
+<td bgcolor=red>Negatives</td>
+<td bgcolor=#7799FF>Positives</td>
+</tr>
+<tr><td> 1 </td><td><font color=#0000FF>Ligandos_final.mol2</font></td>
+<td><center>
+<script type="text/javascript">
+jmolCheckbox("define wireframeSelection wireframeSelection, model =1;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define wireframeSelection wireframeSelection and not model =1;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","","isChecked")</script>
+<script type="text/javascript">
+jmolCheckbox("define spacefillSelection spacefillSelection, model =2;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define spacefillSelection spacefillSelection and not model =2;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","","isChecked")</script>
+</center></td><td><center> 33 </center></td><td><center> 15</td><td><center> 15</td><td><center> 2</td><td><center> 0</td><td><center> 0</td><td><center> 12</td><td><center> 1</td><td><center> 0</td></tr>
+
+<tr><td> 2 </td><td><font color=#00FF00>Ligandos_final_2.mol2</font></td>
+<td><center>
+<script type="text/javascript">
+jmolCheckbox("define wireframeSelection wireframeSelection, model =3;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define wireframeSelection wireframeSelection and not model =3;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","")</script>
+<script type="text/javascript">
+jmolCheckbox("define spacefillSelection spacefillSelection, model =4;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define spacefillSelection spacefillSelection and not model =4;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","")</script>
+</center></td><td><center> 37 </center></td><td><center> 13</td><td><center> 13</td><td><center> 3</td><td><center> 0</td><td><center> 0</td><td><center> 10</td><td><center> 0</td><td><center> 0</td></tr>
+
+<tr><td> 3 </td><td><font color=#FF0000>Ligandos_final_3.mol2</font></td>
+<td><center>
+<script type="text/javascript">
+jmolCheckbox("define wireframeSelection wireframeSelection, model =5;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define wireframeSelection wireframeSelection and not model =5;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","")</script>
+<script type="text/javascript">
+jmolCheckbox("define spacefillSelection spacefillSelection, model =6;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","define spacefillSelection spacefillSelection and not model =6;frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill","")</script>
+</center></td><td><center> 41 </center></td><td><center> 13</td><td><center> 9</td><td><center> 1</td><td><center> 1</td><td><center> 5</td><td><center> 6</td><td><center> 0</td><td><center> 0</td></tr>
+
+</table>
+
+</script> </p> </td> 
+<td width=350 height=350> <div align="center">
+<script type="text/javascript"> jmolApplet(350, "load input.mol2; select all; spacefill off; restrict not all;define wireframeSelection model =1; define spacefillSelection model =2; select model = 1; color [0 ,0 ,255];select model = 3; color [0 ,255 ,0];select model = 5; color [255 ,0 ,0];frame 0#;restrict wireframeSelection,spacefillSelection;select wireframeSelection; wireframe 40;select spacefillSelection; spacefill; background white; hide hydrogens;select ACC;color green; select DON;color yellow; select CAT;color blue; select ANI;color red; select AR;color translucent cyan; select HYD;color lightgrey; select UDF;color magenta; ");
+</script> </div> </td> </tr> 
+ </table> 
+</body></html>

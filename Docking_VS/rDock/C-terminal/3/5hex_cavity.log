@@ -1,0 +1,439 @@
+***********************************************
+The rDock program is licensed under GNU-LGPLv3.0. http://rdock.sourceforge.net/
+Executable:	rbcavity ($Id: //depot/dev/client3/rdock/2013.1/src/exe/rbcavity.cxx#3 $)
+Library:	libRbt.so/2013.1/901 2013/11/27
+RBT_ROOT:	/home/edward/anaconda3/envs/MD/share/rdock-2013.1-1
+RBT_HOME:	/home/edward
+Current dir:	/home/edward/Documentos/Virtual_Screening/rDock/3
+Date:		Wed Mar  3 21:33:00 2021
+***********************************************
+
+Command line arguments:
+-r parameters.prm
+-was
+RbtMOL2FileSource: INFO Attempting to identify element by 1st 2 chars of FFType string: O
+RbtMOL2FileSource: INFO Atomic number = 8
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_21:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_49:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:SER_285:CA
+RbtMOL2FileSource: INFO Too many bonds detected to A:SER_285:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:ASN_287:CA
+RbtMOL2FileSource: INFO Too many bonds detected to A:ASN_287:CG
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_401:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_418:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_525:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:ASN_547:CG
+RbtMOL2FileSource: INFO Too many bonds detected to A:GLU_587:CA
+RbtMOL2FileSource: INFO Too many bonds detected to A:GLU_587:CB
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_592:CD
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_592:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:ARG_691:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:GLU_694:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_763:CE
+RbtMOL2FileSource: INFO Too many bonds detected to A:MET_875:C
+RbtMOL2FileSource: INFO Too many bonds detected to A:LYS_885:CE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_17:HN1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_18:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_18:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_24:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_24:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_29:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_30:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_30:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_30:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_35:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_38:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_41:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_41:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_42:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_42:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_44:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_44:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_44:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_45:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_46:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_54:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_55:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_56:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_58:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_62:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_66:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_67:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_69:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_75:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_77:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_80:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_91:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_91:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_94:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_96:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_96:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_100:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_100:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_104:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_104:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_106:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_108:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_109:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_110:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_110:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_112:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_124:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_124:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_125:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_127:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_129:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_129:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_140:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_140:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_142:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_146:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_147:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_147:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_148:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_154:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:SER_155:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_156:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_160:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_160:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_161:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_162:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_162:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_162:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_165:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_167:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_183:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_183:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_183:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_190:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_190:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_190:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_196:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_196:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_199:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_202:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ILE_203:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_208:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_208:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_208:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_210:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_213:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_215:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_216:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_216:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_220:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_232:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_240:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_242:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_243:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_244:HD1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_247:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_249:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_254:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_254:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_258:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_261:HE1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_264:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_271:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_274:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_274:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_274:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_283:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_291:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_295:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_301:HH
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_307:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_312:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_315:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_330:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_331:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_333:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_333:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_333:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_336:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_336:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_337:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_350:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_350:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_350:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_358:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASP_362:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_371:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_371:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_372:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_373:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_373:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_373:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_376:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_380:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_380:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_381:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_381:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_381:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_389:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_395:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_395:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_396:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_398:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_398:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_405:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_407:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_407:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_409:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_419:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_425:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_425:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_426:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_429:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_430:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_430:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_432:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_432:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_433:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_433:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_433:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_441:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_441:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_441:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_442:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_444:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_444:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_451:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_455:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_457:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_461:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_461:HH
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_462:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_462:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_466:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_468:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_468:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_470:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_471:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_473:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_473:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_483:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_483:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_488:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_488:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_489:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_489:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_489:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_490:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_491:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_492:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_494:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_497:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_497:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_497:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_504:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_514:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_515:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_523:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_523:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_528:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_531:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_533:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_536:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_537:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_537:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_537:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_539:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_542:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_544:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_544:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_546:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_547:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_547:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_549:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_550:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_554:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_555:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_557:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_560:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_564:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_577:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_589:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_598:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_600:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_604:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_607:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_608:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_613:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_616:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_618:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_621:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_621:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_623:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_635:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_638:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_638:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_643:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_656:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_658:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_661:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_663:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_664:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_664:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_683:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_689:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_690:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_691:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_691:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_700:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_706:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_708:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TRP_709:HE1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_715:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_721:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_722:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_735:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_735:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_739:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_740:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_743:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ILE_745:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_749:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:TYR_749:HH
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_755:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_755:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_756:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_756:1HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ASN_756:2HD2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_762:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_764:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_768:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_769:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_775:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_777:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_777:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_778:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_779:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_779:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_779:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ILE_781:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_782:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_784:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_784:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_785:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_785:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_785:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_786:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_789:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_789:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_799:1HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_801:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_801:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_801:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLN_805:2HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_806:HE2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:GLU_810:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:SER_811:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_820:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_824:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_828:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_828:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_828:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_829:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_829:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:CYS_834:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:MET_838:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:VAL_842:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_844:2HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_846:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_846:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_849:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_849:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_863:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_866:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:HIS_870:HD1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_878:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:PHE_890:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LEU_891:HN
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_899:HZ1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_899:HZ2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:LYS_899:HZ3
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:THR_905:HG1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:HE
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:1HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:2HH1
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:1HH2
+RbtMOL2FileSource: INFO Removing orphan hydrogen A:ARG_910:2HH2
+RbtMOL2FileSource: WARNING Undefined Tripos type for A:GLU_774:OE2
+
+MAPPER
+CLASS	RbtLigandSiteMapper
+ENABLED	TRUE
+GRIDSTEP	0.5
+MAX_CAVITIES	1
+MIN_VOLUME	100
+NAME	MAPPER
+RADIUS	6.0
+REF_MOL	Ligcent.sd
+SMALL_SPHERE	1.0
+TRACE	0
+VOL_INCR	0.0
+
+**WARNING** RBT_MODEL_ERROR at ../src/lib/RbtMdlFileSource.cxx, line 405
+O3 makes too few bonds
+**WARNING** RBT_MODEL_ERROR at ../src/lib/RbtMdlFileSource.cxx, line 405
+N6 makes too few bonds
+**WARNING** RBT_MODEL_ERROR at ../src/lib/RbtMdlFileSource.cxx, line 405
+O9 makes too few bonds
+**WARNING** RBT_MODEL_ERROR at ../src/lib/RbtMdlFileSource.cxx, line 405
+O12 makes too few bonds
+**WARNING** RBT_MODEL_ERROR at ../src/lib/RbtMdlFileSource.cxx, line 405
+N25 makes too few bonds
+**WARNING** RBT_MODEL_ERROR at ../src/lib/RbtMdlFileSource.cxx, line 405
+O28 makes too few bonds
+
+DOCKING SITE
+Total volume 2288.25 A^3
+Cavity #1	Size=18306 points; Vol=2288.25 A^3; Min=(76.5,2,-110); Max=(93.5,31,-92); Center=(86.7928,16.7349,-101.092); Extent=(17,29,18)
+
+Cav = 18306; total = 18306

@@ -1,0 +1,305 @@
+5/98 te
+11/98 kb, ags, mll
+______________________________________________________________________
+name  sp3-sp3
+drive_id 3
+minimize 1
+
+definition .3 [ 3 H ]
+definition .3 [ 3 H ]
+______________________________________________________________________
+name  sp3-sp2
+drive_id 12
+minimize 1
+
+definition .3 [ 3 H ]
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  sp3-aromatic
+drive_id 12
+minimize 1
+
+definition .3 [ 3 H ]
+definition .ar
+______________________________________________________________________
+name  sp3-n4
+drive_id 3
+minimize 1
+
+definition .3 [ 3 H ]
+definition N.4 [ 3 H ]
+______________________________________________________________________
+name  sp3-npl
+drive_id 12
+minimize 1
+
+definition .3 [ 3 H ]
+definition N.pl3 [ 2 H ]
+______________________________________________________________________
+name  sp3-n_amide
+drive_id 12
+minimize 1
+
+definition .3 [ 3 H ]
+definition N.am
+______________________________________________________________________
+name  sp3-sp1
+drive_id 3
+minimize 1
+
+definition .3 [ 3 H ]
+definition .1 ( . )
+______________________________________________________________________
+name  sp2-sp2
+drive_id 2
+minimize 0
+
+definition .2 [ 2 H ]
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  sp2-aromatic
+drive_id 9
+minimize 1
+
+definition .2 [ 2 H ]
+definition .ar
+______________________________________________________________________
+name  sp2-aromatic
+drive_id 9
+minimize 1
+
+definition .ar
+definition .ar
+______________________________________________________________________
+name  sp2-n4
+drive_id 6
+minimize 1
+
+definition .2 [ 2 H ]
+definition N.4 [ 3 H ]
+______________________________________________________________________
+name  sp2-npl
+drive_id 9
+minimize 1
+
+definition .2 [ 2 H ]
+definition N.pl3 [ 2 H ]
+______________________________________________________________________
+name  sp2-n_amide
+drive_id 9
+minimize 1
+
+definition .2 [ 2 H ]
+definition N.am
+______________________________________________________________________
+name  C.cat-aromatic
+drive_id 9
+minimize 1
+
+definition C.cat 
+definition .ar
+______________________________________________________________________
+
+SPECIAL CASES COME LAST TO SUPERCEDE GENERAL DEFINITIONS
+______________________________________________________________________
+name  npl3-aromatic
+drive_id 9
+minimize 1
+
+definition N.pl3 [ 2 H ] [ 2 O ]
+definition .ar
+______________________________________________________________________
+name  npl3-sulfone
+drive_id 12
+minimize 1
+
+definition N.pl3 [ 2 H ] [ 2 O ]
+definition S ( 2 O [ * ] )
+#definition S.o2 
+______________________________________________________________________
+name  n_amide-n_amide
+drive_id 2
+minimize 0
+
+definition N.am
+definition N.am
+______________________________________________________________________
+name  n_amide-aromatic
+drive_id 9
+minimize 1
+
+definition N.am
+definition .ar
+______________________________________________________________________
+name  acetyl-sp2
+drive_id 2
+minimize 1
+
+definition C.2 ( O.2 ) ( C.3 )
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  ccat-n
+drive_id 2
+minimize 0
+
+definition C.cat
+definition N [ 2 H ]
+______________________________________________________________________
+#name  carboxyl-sp3
+#drive_id 62
+#minimize 1
+
+#definition C.2 ( 2 O.co2 )
+#definition .3 [ 3 H ]
+______________________________________________________________________
+name  conj-oxygen
+drive_id 11
+minimize 1
+
+definition O.3 [ H ]
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  arom-sulfur
+drive_id 11
+minimize 1
+
+definition S.3 [ H ]
+definition C.ar
+______________________________________________________________________
+name  conj-sulfur
+drive_id 11
+minimize 1
+
+definition S.3 [ H ]
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  ester
+drive_id 2
+minimize 0
+
+definition C.2 ( O.2 )
+definition O.3 ( . )
+______________________________________________________________________
+name  sulfyl-ester
+drive_id 2
+minimize 0
+
+definition C.2 ( S.2 )
+definition S.3 ( . )
+______________________________________________________________________
+name  arom-hydroxyl
+drive_id 2
+minimize 1
+
+definition O.3 ( H )
+definition C.ar
+______________________________________________________________________
+name  conj-hydroxyl
+drive_id 2
+minimize 1
+
+definition O.3 ( H )
+definition .2
+______________________________________________________________________
+name  arom-hydrosulfyl
+drive_id 2
+minimize 1
+
+definition S.3 ( H )
+definition C.ar
+______________________________________________________________________
+name  conj-hydrosulfyl
+drive_id 2
+minimize 1
+
+definition S.3 ( H )
+definition .2 [ 2 H ]
+______________________________________________________________________
+#name  phosph-ester
+#drive_id 62
+#minimize 1
+
+#definition P.3 ( 2 O.co2 )
+#definition O.3
+______________________________________________________________________
+name  sulfate-ester
+drive_id 62
+minimize 1
+
+definition S ( 4 O )
+definition O.3
+______________________________________________________________________
+name  sulfonate-arom
+drive_id 63
+minimize 1
+
+definition S ( 3 O [ * ] )
+definition C.ar
+______________________________________________________________________
+name  sulfonate-sp2
+drive_id 63
+minimize 0
+
+definition S ( 3 O [ * ] )
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  sulfonamide
+drive_id 10
+minimize 1
+
+definition S ( 2 O [ * ] )
+definition N.am [ 2 H ]
+______________________________________________________________________
+name  sulfone-sp3
+drive_id 3
+minimize 1
+
+definition S ( 2 O [ * ] )
+#definition S.o2 
+definition .3 [ 3 H ]
+______________________________________________________________________
+name  sulfone-sp2
+drive_id 6
+minimize 1
+
+definition S ( 2 O [ * ] )
+#definition S.o2
+definition .2 [ 2 H ]
+______________________________________________________________________
+name  sulfone-aromatic
+drive_id 6
+minimize 1
+
+definition S ( 2 O [ * ] )
+#definition S.o2
+definition C.ar
+______________________________________________________________________
+name  silicon-sp3
+drive_id 6
+minimize 1
+
+definition Si [ 3 H ]
+definition .3 [ 3 H ]
+______________________________________________________________________
+name  silicon-oxygen
+drive_id 3
+minimize 1
+
+definition Si [ 3 H ]
+definition O.3
+______________________________________________________________________
+name            amide
+drive_id        1
+minimize        0
+
+definition      N.am ( H )
+definition      C.2 ( O.2 )
+______________________________________________________________________
+
+name  arom-oxygen
+drive_id 11
+minimize 1
+
+definition O.3 [ H ]
+definition C.ar
+______________________________________________________________________
