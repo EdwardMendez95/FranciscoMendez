@@ -1,0 +1,22 @@
+Donor	     Donor_at     	  Acceptor	  Acceptor_at           Per_Exist
+    PHE602	         N	    DECOY_912	       C23	     0.040
+    SER603	        HA	    DECOY_912	       C23	     1.700
+    ASN656	        HA	    DECOY_912	       C22	     0.100
+    ASN656	        HA	    DECOY_912	       C23	     0.060
+    ASN656	        HA	    DECOY_912	       C24	     0.380
+    ASN656	        HA	    DECOY_912	       H29	     1.620
+   ASPH657	         N	    DECOY_912	       H29	     2.200
+   ASPH657	        HA	    DECOY_912	       C25	     0.820
+    ASN683	        HA	    DECOY_912	       C25	     0.280
+    ASN706	        HA	    DECOY_912	       C22	     0.800
+    ASN706	        HA	    DECOY_912	       C24	    58.748
+   GLUH708	       HB2	    DECOY_912	       C22	     7.558
+   GLUH708	       HB2	    DECOY_912	       C24	     0.040
+   GLUH742	       HB2	    DECOY_912	       C25	     1.580
+    DECOY_912	        O1	    PHE602	        HZ	     0.040
+    DECOY_912	        O1	    PHE604	        HZ	     0.020
+    DECOY_912	        O1	    CYS606	        HG	     1.940
+    DECOY_912	        O1	    GLN608	       HB1	     0.020
+    DECOY_912	        O1	    VAL655	      HG23	     0.500
+    DECOY_912	       H29	    SER603	        HA	     0.220
+    DECOY_912	       H29	    ASN656	         H	     0.020
